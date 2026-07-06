@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;1,400&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Instrument Serif", serif;
+  --font-sans: "Outfit", sans-serif;
+  
+  --color-brand-primary: #8B1D30;
+  --color-brand-primary-light: rgba(139, 29, 48, 0.1);
+  --color-brand-secondary: #929497;
+  --color-brand-secondary-light: #f1f5f9;
+  --color-brand-dark: #1e293b;
+  --color-brand-blue: #1e3a8a;
+  --color-brand-blue-dark: #0f172a;
+  --color-brand-blue-light: #eff6ff;
+}
+
+/* Custom base resets and utilities for Awwwards aesthetics */
+html, body {
+  font-family: var(--font-sans);
+  background-color: #ffffff;
+  color: #1e293b;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+/* Custom premium styles */
+.text-gradient {
+  background: linear-gradient(135deg, #1e293b 0%, #8B1D30 50%, #929497 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #8B1D30 0%, #929497 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-primary {
+  background: linear-gradient(135deg, #8B1D30 0%, #e63946 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Embedded inline-pill-image inside massive headers */
+.inline-pill-image {
+  display: inline-block;
+  vertical-align: middle;
+  height: 0.9em;
+  width: 2.2em;
+  border-radius: 9999px;
+  background-size: cover;
+  background-position: center;
+  margin-left: 0.15em;
+  margin-right: 0.15em;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-0.05em);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.inline-pill-image:hover {
+  transform: translateY(-0.05em) scale(1.08);
+}
+
+/* Custom Glassmorphism Pill */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+.glass-pill-nav {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 10px 30px rgba(29, 78, 216, 0.04);
+}
+
+/* Scroll scrubbing and fade scaling rules */
+.reveal-text span {
+  opacity: 0.1;
+  transition: opacity 0.3s ease;
+}
+.reveal-text span.active {
+  opacity: 1;
+}
+
+/* Smooth custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1d4ed8;
+}
+
+/* Creative Background Gradients (Mesh animation) */
+@keyframes meshShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.bg-mesh-glow {
+  background: radial-gradient(circle at 10% 20%, rgba(29, 78, 216, 0.05) 0%, transparent 40%),
+              radial-gradient(circle at 90% 80%, rgba(180, 83, 9, 0.04) 0%, transparent 40%),
+              radial-gradient(circle at 50% 50%, rgba(29, 78, 216, 0.02) 0%, transparent 60%);
+  background-size: 200% 200%;
+  animation: meshShift 15s ease-in-out infinite;
+}
+
+/* Custom Transitions */
+.transition-luxury {
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 3D Flip Card Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+.group:hover .group-hover\:rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* --- Chatbot Custom Styling & Integration --- */
+:root {
+  /* Common Chatbot Color overrides */
+  --chatbot-primary-color: var(--color-brand-blue, #408080);
+  --chatbot-accent-color: var(--color-brand-gold, #38bdf8);
+  --chatbot-font-family: var(--font-sans), sans-serif;
+  --chatbot-bot-bg: var(--color-brand-blue-light, #f1f5f9);
+  --chatbot-user-bg: var(--color-brand-blue, #408080);
+  --chatbot-border-radius: 1.25rem;
+  
+  /* Dialogflow Messenger overrides (just in case) */
+  --df-messenger-primary-color: var(--color-brand-blue, #408080);
+  --df-messenger-font-family: var(--font-sans), sans-serif;
+  --df-messenger-bot-message: var(--color-brand-blue-light, #f1f5f9);
+  --df-messenger-user-message: var(--color-brand-blue, #408080);
+  --df-messenger-chat-border-radius: 1.25rem;
+  
+  /* Generic custom chatbot variables */
+  --chat-primary: var(--color-brand-blue, #408080);
+  --chat-accent: var(--color-brand-gold, #38bdf8);
+  --chat-button-bg: var(--color-brand-blue, #408080);
+  --chat-header-bg: var(--color-brand-blue, #408080);
+}
+
+/* Custom Tooth Shape for 48x48 (w-12 h-12) container */
+.shape-tooth {
+  clip-path: path('M 7.2 14.4 C 7.2 2.4, 40.8 2.4, 40.8 14.4 C 40.8 28.8, 36 33.6, 33.6 45.6 C 33.6 50.4, 24 48, 24 38.4 C 24 48, 14.4 50.4, 14.4 45.6 C 12 33.6, 7.2 28.8, 7.2 14.4 Z');
+}
