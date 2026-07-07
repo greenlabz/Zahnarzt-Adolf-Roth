@@ -44,8 +44,11 @@ export default function App() {
       const href = anchor.getAttribute('href');
 
       if (href === '#booking') {
-        e.preventDefault();
-        window.dispatchEvent(new Event('show-booking-maintenance'));
+        const bookingSection = document.getElementById('booking');
+        if (bookingSection) {
+          e.preventDefault();
+          bookingSection.scrollIntoView({ behavior: 'smooth' });
+        }
         return;
       }
     };
