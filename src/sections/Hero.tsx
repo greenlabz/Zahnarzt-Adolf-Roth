@@ -45,7 +45,7 @@ export default function Hero() {
 
           {/* Description */}
           <p className="mt-6 text-sm sm:text-base text-slate-300 font-light max-w-lg leading-relaxed">
-            Zahnärztliche Vollversorgung von der Prophylaxe über Zahnersatz bis zur Wurzelkanalbehandlung, alles unter einem Dach, in vertrauensvoller Atmosphäre. Praxisinhaber Adolf Roth (jun.) und sein Team in Neuenstadt am Kocher.
+            Zahnmedizin aus Neuenstadt am Kocher für Neuenstadt am Kocher, Hardthausen, Langenbrettach, Eberstadt, Oedheim und Bad Friedrichshall. Prophylaxe, Zahnersatz, Angstpatienten und Notfalltermine in einem modernen Konzept.
           </p>
 
           {/* CTA and Badge Container */}

@@ -41,13 +41,13 @@ export default function Contact() {
                 <Clock className="w-5 h-5 mt-0.5 text-sky-700 shrink-0" />
                 <div>
                   <p className="font-medium mb-2">Öffnungszeiten:</p>
+                  <p>Montag: 08:00–12:00, 14:00–18:00</p>
                   <p>Dienstag: 08:00–12:00, 14:00–18:00</p>
                   <p>Mittwoch: 08:00–12:00</p>
                   <p>Donnerstag: 08:00–12:00, 14:00–18:00</p>
                   <p>Freitag: 08:00–12:00</p>
                   <p>Samstag: Geschlossen</p>
                   <p>Sonntag: Geschlossen</p>
-                  <p>Montag: 08:00–12:00, 14:00–18:00</p>
                   <p className="mt-2">Notfall außerhalb der Sprechzeiten über den zahnärztlichen Notdienst</p>
                 </div>
               </div>

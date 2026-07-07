@@ -70,7 +70,7 @@ export default function About() {
               
               <img 
                 src="/adolf-clean.png" 
-                alt="Adolf Roth (jun.)" 
+                alt="Adolf Roth (jun.) - Zahnarzt und Inhaber der Praxis in Neuenstadt am Kocher" 
                 className="absolute inset-0 w-full h-full object-cover transition-luxury hover:scale-105 duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />

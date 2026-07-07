@@ -216,21 +216,21 @@ export default function HorizontalCards() {
             <img 
               ref={img1Ref}
               src="/Zahnarztpraxis_mit_Beratung_2K_202607061615.jpeg" 
-              alt="Angstfreie Behandlung" 
+              alt="Zahnarztpraxis Adolf Roth in Neuenstadt am Kocher - Beratung und angstfreie Behandlung" 
               className="absolute inset-0 w-full h-full object-cover transition-luxury duration-700"
             />
             {/* Image 2 */}
             <img 
               ref={img2Ref}
               src="/Schöne_Zähne_gesunde_Zähne_Lächeln_202607061620.jpeg" 
-              alt="Ästhetische Behandlung" 
+              alt="Schöne gesunde Zähne und Zahnpflege in der Praxis Adolf Roth, Neuenstadt am Kocher" 
               className="absolute inset-0 w-full h-full object-cover transition-luxury duration-700"
             />
             {/* Image 3 */}
             <img 
               ref={img3Ref}
               src="/zahnersatz_2K_202607061600.jpeg" 
-              alt="Zahnerhalt & Implantologie" 
+              alt="Zahnersatz und moderne Zahnmedizin in Neuenstadt am Kocher" 
               className="absolute inset-0 w-full h-full object-cover transition-luxury duration-700"
             />
             
