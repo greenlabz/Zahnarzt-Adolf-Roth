@@ -30,7 +30,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const formattedTime = typeof time === 'string' ? time : 'unbekannt';
     const anxiousText = isAnxious ? 'Ja' : 'Nein';
 
-    const patientText = `
+    const patientBody = `
       <h1 style="font-size:22px; margin-bottom:8px;">Vielen Dank für Ihre Terminanfrage</h1>
       <p style="color:#334155;">Hallo ${escapeHtml(name)},</p>
       <p style="color:#334155;">
@@ -49,17 +49,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       <p style="color:#334155; margin-top:14px;">
         Falls etwas nicht passt, antworten Sie einfach auf diese E-Mail.
       </p>
-      <div style="margin-top:22px; border-top:1px solid #e5e7eb; padding-top:10px; font-size:12px; color:#64748b; line-height:1.5;">
-        Zahnarztpraxis Adolf Roth<br />
-        Cleversulzbacher Str. 10<br />
-        74196 Neuenstadt am Kocher<br />
-        <a href="https://zahnaerzte-roth.de">https://zahnaerzte-roth.de</a>
-      </div>
     `;
 
     const practiceLogoUrl = 'https://zahnaerzte-roth.de/logo.png';
 
-    const internalText = `
+    const internalBody = `
       <h1 style="font-size:22px; margin-bottom:8px;">Neue Terminanfrage</h1>
       <ul style="color:#334155; line-height:1.7;">
         <li><strong>Name:</strong> ${escapeHtml(name)}</li>
@@ -72,21 +66,25 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       </ul>
     `;
 
-    await transporter.sendMail({
-      from: `"Zahnarztpraxis Adolf Roth" <${user}>`,
-      to: email,
-      subject: 'Ihre Terminanfrage | Zahnarztpraxis Adolf Roth',
-      html: emailHtml('Vielen Dank für Ihre Terminanfrage', patientText, practiceLogoUrl),
-    });
+    const [patientResult, internalResult] = await Promise.all([
+      transporter.sendMail({
+        from: `"Zahnarztpraxis Adolf Roth" <${user}>`,
+        to: email,
+        subject: 'Ihre Terminanfrage | Zahnarztpraxis Adolf Roth',
+        html: emailHtml('Vielen Dank für Ihre Terminanfrage', patientBody, practiceLogoUrl),
+      }),
+      transporter.sendMail({
+        from: `"Zahnarztpraxis Adolf Roth" <${user}>`,
+        to: user,
+        subject: `Neue Terminanfrage von ${name}`,
+        html: emailHtml('Neue Terminanfrage', internalBody, practiceLogoUrl),
+      }),
+    ]);
 
-    await transporter.sendMail({
-      from: `"Zahnarztpraxis Adolf Roth" <${user}>`,
-      to: user,
-      subject: `Neue Terminanfrage von ${name}`,
-      html: emailHtml('Neue Terminanfrage', internalText, practiceLogoUrl),
-    });
+    console.log('Mail send patient', { messageId: patientResult.messageId, to: email });
+    console.log('Mail send internal', { messageId: internalResult.messageId, to: user });
 
-    return res.status(200).json({ ok: true });
+    return res.status(200).json({ ok: true, patientMessageId: patientResult.messageId, internalMessageId: internalResult.messageId });
   } catch (error) {
     console.error('Mail send error', error);
     return res.status(500).json({ ok: false, message: 'Mail send failed.' });
