@@ -84,30 +84,20 @@ export default function Hero() {
       {/* Statistics Banner */}
       <div className="bg-white border-b border-slate-100 relative z-10">
         <div className="max-w-7xl mx-auto px-6 py-16 sm:py-20">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8 text-center">
-            
-            {/* Stat 1 */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-12 md:gap-8 text-center">
             <div className="flex flex-col items-center justify-center space-y-3">
-              <span className="text-5xl sm:text-6xl font-bold tracking-tight text-gradient font-serif italic pr-2 pb-1">4,8</span>
-              <span className="text-xs sm:text-sm text-slate-500 font-medium uppercase tracking-widest">Google Bewertung</span>
+              <span className="text-5xl sm:text-6xl font-bold tracking-tight text-gradient font-serif italic pr-2 pb-1">98%</span>
+              <span className="text-xs sm:text-sm text-slate-500 font-medium uppercase tracking-widest">Weiterempfehlung</span>
             </div>
 
-            {/* Stat 2 */}
             <div className="flex flex-col items-center justify-center space-y-3">
               <span className="text-5xl sm:text-6xl font-bold tracking-tight text-gradient font-serif italic pr-2 pb-1">30+</span>
-              <span className="text-xs sm:text-sm text-slate-500 font-medium uppercase tracking-widest">Jahre Erfahrung</span>
+              <span className="text-xs sm:text-sm text-slate-500 font-medium uppercase tracking-widest">Jahre Praxiserfahrung</span>
             </div>
 
-            {/* Stat 3 */}
             <div className="flex flex-col items-center justify-center space-y-3">
-              <span className="text-5xl sm:text-6xl font-bold tracking-tight text-gradient font-serif italic pr-2 pb-1">12.000+</span>
-              <span className="text-xs sm:text-sm text-slate-500 font-medium uppercase tracking-widest">Behandelte Patienten</span>
-            </div>
-
-            {/* Stat 4 */}
-            <div className="flex flex-col items-center justify-center space-y-3">
-              <span className="text-5xl sm:text-6xl font-bold tracking-tight text-gradient font-serif italic pr-2 pb-1">LZK</span>
-              <span className="text-xs sm:text-sm text-slate-500 font-medium uppercase tracking-widest">Mitglied</span>
+              <span className="text-5xl sm:text-6xl font-bold tracking-tight text-gradient font-serif italic pr-2 pb-1">5</span>
+              <span className="text-xs sm:text-sm text-slate-500 font-medium uppercase tracking-widest">Fachkräfte im Team</span>
             </div>
 
           </div>
