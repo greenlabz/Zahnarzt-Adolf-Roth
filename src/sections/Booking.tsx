@@ -53,7 +53,7 @@ export default function Booking() {
   };
 
   return (
-    <section id="booking" className="py-32 md:py-48 bg-slate-50/30 relative overflow-hidden w-full">
+    <section id="booking" className="scroll-margin-top-24 py-32 md:py-48 bg-slate-50/30 relative overflow-hidden w-full">
       {/* Background blobs */}
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-brand-blue/5 blur-[100px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-gold/5 blur-[100px] rounded-full pointer-events-none" />

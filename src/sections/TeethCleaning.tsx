@@ -63,7 +63,7 @@ export default function TeethCleaning() {
   }, [isDragging]);
 
   return (
-    <section id="cleaning" className="py-32 md:py-48 bg-slate-50 relative overflow-hidden w-full">
+    <section id="cleaning" className="scroll-margin-top-24 py-32 md:py-48 bg-slate-50 relative overflow-hidden w-full">
       {/* Background Accent Blobs */}
       <div className="absolute top-10 left-10 w-[400px] h-[400px] rounded-full bg-brand-blue/5 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-[500px] h-[500px] rounded-full bg-brand-gold/5 blur-[130px] pointer-events-none" />

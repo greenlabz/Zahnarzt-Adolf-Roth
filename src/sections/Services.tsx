@@ -60,7 +60,7 @@ function FlipCard({
 
 export default function Services() {
   return (
-    <section id="services" className="py-32 md:py-48 bg-slate-50 relative overflow-hidden w-full">
+    <section id="services" className="scroll-margin-top-24 py-32 md:py-48 bg-slate-50 relative overflow-hidden w-full">
       {/* Background Decorative Mesh */}
       <div className="absolute top-10 right-0 w-[500px] h-[500px] rounded-full bg-brand-blue/5 blur-[130px] pointer-events-none" />
       <div className="absolute bottom-10 -left-10 w-[400px] h-[400px] rounded-full bg-brand-gold/5 blur-[120px] pointer-events-none" />
@@ -71,7 +71,7 @@ export default function Services() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-12">
           <div className="max-w-3xl text-left">
             <p className="font-mono text-xs font-bold uppercase tracking-widest text-brand-blue mb-3">Unsere Kernkompetenzen</p>
-            <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight text-brand-blue-dark leading-tight mb-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-brand-blue-dark leading-tight mb-8">
               Zahnärztliche Vollversorgung <br />
               <span className="text-gradient font-serif italic pr-2">für Ihr schönstes Lächeln.</span>
             </h2>

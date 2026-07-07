@@ -104,21 +104,21 @@ const ratgeberData = [
   {
     id: "06",
     title: "Weißere Zähne",
-    subtitle: "Lohnt sich Bleaching beim Zahnarzt wirklich?",
+    subtitle: "Sichere Möglichkeiten für ein strahlenderes Lächeln.",
     icon: <Sparkles className="w-6 h-6 text-brand-primary" />,
     content: (
       <>
-        <p className="mb-4">Wer wünscht sich kein strahlend weißes Lächeln? Auf dem Markt gibt es unzählige Drogerie-Produkte: Whitening-Stripes, LED-Kits oder Aktivkohle-Zahnpasta. Doch Vorsicht: Viele dieser Methoden schaden dem Zahnschmelz oder bringen kaum sichtbare Ergebnisse.</p>
-        <p className="font-bold mb-4">Warum ist das Profi-Bleaching beim Zahnarzt die bessere Wahl?</p>
+        <p className="mb-4">Viele wünschen sich ein strahlenderes Lächeln. Auf dem Markt gibt es Drogerie-Produkte wie Whitening-Stripes, LED-Kits oder Aktivkohle-Zahnpasta. Oft fehlt aber eine klare Einschätzung, welche Methode wirklich hilft und schonend zum Zahnschmelz ist.</p>
+        <p className="font-bold mb-4">Die wichtigste Grundregel</p>
         <ul className="list-disc pl-5 mb-4 space-y-2">
-          <li><strong>Sicherheit:</strong> Wir decken Ihr Zahnfleisch vor der Behandlung sorgfältig ab. Das hochkonzentrierte Bleichgel kommt nur mit den Zähnen in Kontakt.</li>
-          <li><strong>Effektivität:</strong> Beim Zahnarzt können wir Verfärbungen tief im Zahnschmelz lösen. Das Ergebnis hält bei guter Pflege mehrere Jahre.</li>
-          <li><strong>Vorab-Check:</strong> Vor jedem Bleaching prüfen wir, ob Ihre Zähne gesund sind (Karies oder undichte Füllungen müssen vorher versorgt werden).</li>
+          <li><strong>Schonung:</strong> Nicht jede Anwendung ist für jeden Zahnzustand geeignet.</li>
+          <li><strong>Effekt:</strong> Nur fachgerecht abgestimmte Behandlungen bringen nachhaltige Ergebnisse.</li>
+          <li><strong>Check:</strong> Vor jeder kosmetischen Aufhellung sollte der Zahnarzt den Zustand prüfen.</li>
         </ul>
       </>
     ),
-    boxText: "Ein professionelles Power-Bleaching in unserer Zahnarztpraxis in Neuenstadt am Kocher schenkt Ihnen in nur einer Sitzung Ihr Traumächeln – sicher, schonend und langanhaltend.",
-    buttonText: "Lassen Sie sich jetzt in Neuenstadt am Kocher von unseren Experten für ästhetische Zahnmedizin beraten!"
+    boxText: "Eine schonende, individuelle Aufhellung in unserer Zahnarztpraxis in Neuenstadt am Kocher kann Ihnen ein strahlenderes Lächeln schenken – sicher und auf Ihren Zahnzustand abgestimmt.",
+    buttonText: "Lassen Sie sich jetzt in Neuenstadt am Kocher von uns beraten!"
   },
   {
     id: "07",

@@ -8,7 +8,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-32 md:py-48 bg-white relative overflow-hidden w-full">
+    <section id="about" className="scroll-margin-top-24 py-32 md:py-48 bg-white relative overflow-hidden w-full">
       {/* Background Accent Blur */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-brand-blue/5 blur-[120px] rounded-full pointer-events-none" />
 
@@ -49,16 +49,16 @@ export default function About() {
           {/* Stats Grid */}
           <div className="grid grid-cols-3 gap-6 pt-10 border-t border-slate-100/80 text-left">
             <div>
-              <span className="block text-4xl md:text-5xl font-extrabold text-gradient-primary tracking-tight">98%</span>
-              <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400">Zufriedenheit</span>
+              <span className="block text-4xl md:text-5xl font-extrabold text-gradient-primary tracking-tight">15</span>
+              <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400">Min durchschnittliche Wartezeit</span>
             </div>
             <div>
-              <span className="block text-4xl md:text-5xl font-extrabold text-gradient-primary tracking-tight">12k+</span>
-              <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400">Lächeln</span>
+              <span className="block text-4xl md:text-5xl font-extrabold text-gradient-primary tracking-tight">8</span>
+              <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400">Jahre im Team</span>
             </div>
             <div>
-              <span className="block text-4xl md:text-5xl font-extrabold text-gradient-primary tracking-tight">4.8*</span>
-              <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400">Google Rating</span>
+              <span className="block text-4xl md:text-5xl font-extrabold text-gradient-primary tracking-tight">&lt;2h</span>
+              <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400">Notfall-Reaktionszeit</span>
             </div>
           </div>
         </div>

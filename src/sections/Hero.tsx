@@ -38,6 +38,11 @@ export default function Hero() {
             </span>
           </h1>
 
+          {/* Subline / transition */}
+          <p className="mt-4 text-xl sm:text-2xl md:text-3xl text-white/90 font-serif italic tracking-tight">
+            Zahnärztliche Vollversorgung für Ihr schönstes Lächeln.
+          </p>
+
           {/* Description */}
           <p className="mt-6 text-sm sm:text-base text-slate-300 font-light max-w-lg leading-relaxed">
             Zahnärztliche Vollversorgung von der Prophylaxe über Zahnersatz bis zur Wurzelkanalbehandlung, alles unter einem Dach, in vertrauensvoller Atmosphäre. Praxisinhaber Adolf Roth (jun.) und sein Team in Neuenstadt am Kocher.

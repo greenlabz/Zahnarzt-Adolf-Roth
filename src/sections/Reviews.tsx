@@ -72,7 +72,7 @@ export default function Reviews() {
   );
 
   return (
-    <section id="reviews" className="py-32 md:py-48 bg-slate-50 relative overflow-hidden w-full text-center">
+    <section id="reviews" className="scroll-margin-top-24 py-32 md:py-48 bg-slate-50 relative overflow-hidden w-full text-center">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Header Area */}

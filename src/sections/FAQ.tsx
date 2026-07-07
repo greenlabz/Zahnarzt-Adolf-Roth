@@ -57,7 +57,7 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-32 md:py-48 bg-[#fbfbf9] relative overflow-hidden w-full">
+    <section id="faq" className="scroll-margin-top-24 py-32 md:py-48 bg-[#fbfbf9] relative overflow-hidden w-full">
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         
         {/* Header */}
