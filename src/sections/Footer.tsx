@@ -12,7 +12,7 @@ export default function Footer() {
     window.dispatchEvent(new CustomEvent('open-legal', { detail: { tab: 'datenschutz' } }));
   };
 
-  const openingHours = 'Mo/Do 08:00–12:00, 14:00–18:00 · Di+Mi+Fr 08:00–12:00 · Sa+So geschlossen';
+  const openingHours = 'Mo+Do 08:00–12:00, 14:00–18:00 · Di+Mi+Fr 08:00–12:00 · Sa+So geschlossen';
 
   return (
     <footer className="bg-[#9c2c40] text-white pt-24 pb-8 relative overflow-hidden w-full">
