@@ -164,6 +164,17 @@ export default function LeistungenPage() {
         title="Alle Leistungen | Zahnarzt Adolf Roth"
         description="Von Prophylaxe über Kinderzahnheilkunde bis hin zu Zahnersatz und Implantologie. Erfahren Sie alles über das Leistungsspektrum unserer Praxis in Neuenstadt."
         canonicalPath="/leistungen"
+        type="website"
+        faqItems={[
+          { question: 'Was kostet eine professionelle Zahnreinigung in Neuenstadt am Kocher?', answer: 'Die PZR-Kosten hängen vom individuellen Aufwand ab. Viele gesetzliche Kassen bezuschussen sie, private Kassen übernehmen sie oft vollständig.' },
+          { question: 'Bieten Sie auch Angstpatienten spezielle Betreuung an?', answer: 'Ja. In unserer Praxis in Neuenstadt am Kocher nehmen wir uns Zeit, erklären jeden Schritt und wählen schonende Betäubungsmethoden für ein entspannteres Erlebnis.' },
+          { question: 'Wie erreiche ich die Praxis mit dem Auto?', answer: 'Sie erreichen die Praxis über die Cleversulzbacher Str. 10 in 74196 Neuenstadt am Kocher. Direkt vor und hinter der Praxis stehen ausreichend kostenlose Patientenparkplätze zur Verfügung.' }
+        ]}
+        rating={4.8}
+        breadcrumbs={[
+          { label: 'Startseite', href: '/' },
+          { label: 'Leistungen', href: '/leistungen' }
+        ]}
       />
       <div className="absolute top-10 right-0 w-[500px] h-[500px] rounded-full bg-brand-blue/5 blur-[130px] pointer-events-none" />
       <div className="absolute bottom-10 -left-10 w-[400px] h-[400px] rounded-full bg-brand-gold/5 blur-[120px] pointer-events-none" />

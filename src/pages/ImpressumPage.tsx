@@ -12,8 +12,12 @@ export default function ImpressumPage() {
     <div className="bg-brand-light flex flex-col pt-32 pb-24 px-6 min-h-[80vh]">
       <SEO 
         title="Impressum | Zahnarzt Adolf Roth" 
-        description="Impressum und rechtliche Hinweise der Zahnarztpraxis Zahnarzt Adolf Roth in Neuenstadt am Kocher."
-        canonicalPath="/impressum" 
+        description="Rechtliche Hinweise und Kontaktangaben der Zahnarztpraxis Adolf Roth in Neuenstadt am Kocher. Telefon, E-Mail, Adresse und berufsrechtliche Angaben."
+        canonicalPath="/impressum"
+        breadcrumbs={[
+          { label: 'Startseite', href: '/' },
+          { label: 'Impressum', href: '/impressum' }
+        ]}
       />
       <main className="flex-1">
         <div className="max-w-3xl mx-auto">

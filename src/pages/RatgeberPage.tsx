@@ -205,9 +205,19 @@ export default function RatgeberPage() {
     <main className="pt-32 pb-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
       <SEO 
         title="Ratgeber für gesunde Zähne | Zahnarzt Adolf Roth" 
-        description="Wertvolle Tipps und Fakten rund um Ihre Zahngesundheit. Erfahren Sie alles über richtiges Zähneputzen, Karies-Vorbeugung, Zahnfleischpflege und Hausmittel bei Zahnschmerzen."
+        description="Wertvolle Tipps und Fakten rund um Ihre Zahngesundheit in Neuenstadt am Kocher. Erfahren Sie alles über richtiges Zähneputzen, Karies-Vorbeugung, Zahnfleischpflege und Hausmittel bei Zahnschmerzen."
         canonicalPath="/ratgeber" 
         type="article"
+        faqItems={[
+          { question: 'Wie oft sollte ich zur professionellen Zahnreinigung kommen?', answer: 'Für gesunde Patienten empfehlen wir zwei Termine pro Jahr. Bei erhöhtem Risiko, zum Beispiel Rauchern oder Diabetikern, können kürzere Abstände sinnvoll sein.' },
+          { question: 'Ab wann sollte mein Kind zum Zahnarzt?', answer: 'Am besten mit dem Durchbruch des ersten Milchzahns, spätestens um den ersten Geburtstag. So lernen Kinder die Praxis früh positiv kennen.' },
+          { question: 'Wie kann ich Zahnschmerzen außerhalb der Sprechzeiten lindern?', answer: 'Kühlen Sie mit einem kalten, feuchten Tuch. Vermeiden Sie Wärme und säurehaltige Getränke. Bei starken Schmerzen konsultieren Sie den zahnärztlichen Notdienst.' }
+        ]}
+        rating={4.8}
+        breadcrumbs={[
+          { label: 'Startseite', href: '/' },
+          { label: 'Ratgeber', href: '/ratgeber' }
+        ]}
       />
       
       <Link 
