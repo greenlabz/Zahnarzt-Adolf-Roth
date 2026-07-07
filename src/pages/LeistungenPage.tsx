@@ -146,7 +146,8 @@ function ServiceCard({ service, minH }: { service: typeof servicesList[0]; minH:
           <h3 className="text-lg font-extrabold uppercase tracking-tight text-white mb-3">{service.title}</h3>
           <p className="text-white/80 text-sm font-light leading-relaxed mb-6">{service.desc}</p>
           <button
-            onClick={(e) => { e.stopPropagation(); window.dispatchEvent(new Event('show-booking-maintenance')); }}
+            type="button"
+            onClick={(e) => { e.stopPropagation(); const el = document.getElementById('booking'); el?.scrollIntoView({ behavior: 'smooth' }); }}
             className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/25 text-white px-5 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-white/30 transition-colors shadow-sm cursor-pointer"
           >
             Termin vereinbaren <ArrowUpRight size={12} />
