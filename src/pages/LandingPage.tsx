@@ -6,6 +6,7 @@ import About from '../sections/About';
 import Reviews from '../sections/Reviews';
 import FAQ from '../sections/FAQ';
 import Booking from '../sections/Booking';
+import Contact from '../sections/Contact';
 import FadeIn from '../components/FadeIn';
 import SEO from '../components/SEO';
 
@@ -21,6 +22,7 @@ export default function LandingPage() {
       <FadeIn><Reviews /></FadeIn>
       <FadeIn><FAQ /></FadeIn>
       <FadeIn><Booking /></FadeIn>
+      <FadeIn><Contact /></FadeIn>
     </main>
   );
 }

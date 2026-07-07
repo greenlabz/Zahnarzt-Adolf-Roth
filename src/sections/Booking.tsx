@@ -18,8 +18,7 @@ export default function Booking() {
   const reasons = [
     { id: 'checkup', title: 'Kontrolluntersuchung & Vorsorge', duration: '30 Min', desc: 'Regelmäßiger Check für Ihre Zahngesundheit.' },
     { id: 'cleaning', title: 'Professionelle Zahnreinigung (PZR)', duration: '60 Min', desc: 'Tiefenreinigung und Zahnsteinentfernung.' },
-    { id: 'pain', title: 'Akute Zahnschmerzen / Notfall', duration: '30 Min', desc: 'Schnelle Hilfe bei akuten Beschwerden.' },
-    { id: 'aesthetic', title: 'Ästhetische Beratung (Veneers / Bleaching)', duration: '45 Min', desc: 'Beratung für Ihr weißeres Lächeln.' }
+    { id: 'pain', title: 'Akute Zahnschmerzen / Notfall', duration: '30 Min', desc: 'Schnelle Hilfe bei akuten Beschwerden.' }
   ];
 
   const dates = [
@@ -65,8 +64,8 @@ export default function Booking() {
         <div className="text-center mb-20">
           <p className="font-mono text-xs font-bold uppercase tracking-widest text-brand-blue mb-3">Online Terminplaner</p>
           <h2 className="text-4xl md:text-6xl font-extrabold text-brand-blue-dark tracking-tight leading-tight mb-6">
-            In wenigen Schritten zum Wunschtermin – <br />
-            <span className="text-gradient font-serif italic pr-2">einfach & bequem.</span>
+            In wenigen Schritten zum Wunschtermin, <br />
+            <span className="text-gradient font-serif italic pr-2">einfach und bequem.</span>
           </h2>
           <p className="text-slate-500 font-light max-w-md mx-auto">
             Wähle dein Anliegen, trage deinen Wunschtermin ein und wir reservieren deine Zeit.
@@ -93,6 +92,7 @@ export default function Booking() {
                 <div className={`w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold ${step === 'contact' ? 'bg-brand-blue text-white' : 'bg-slate-100 text-slate-400'}`}>3</div>
                 <span className={`${step === 'contact' ? 'text-slate-900' : 'text-slate-400'}`}>Kontakt</span>
               </div>
+              <ChevronRight size={14} className="text-slate-300" />
             </div>
           )}
 

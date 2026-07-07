@@ -100,13 +100,20 @@ export default function Reviews() {
         
         {/* Button below reviews */}
         <div className="mt-16 flex justify-center">
-          <button
-            onClick={() => window.dispatchEvent(new Event('show-booking-maintenance'))}
-            className="relative inline-flex items-center gap-3 bg-brand-primary/60 backdrop-blur-md text-white px-8 py-4 rounded-full text-sm font-semibold hover:bg-brand-primary/80 transition-luxury cursor-pointer shadow-[0_0_15px_rgba(139,29,48,0.5)] border border-brand-primary/50"
-          >
-            <span>Jetzt Termin vereinbaren</span>
-            <ArrowRight size={16} className="stroke-[2.5]" />
-          </button>
+          <div className="relative inline-flex group">
+            <div className="absolute -inset-[3px] rounded-full overflow-hidden blur-[6px] opacity-80 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] aspect-square animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0_270deg,#ef4444_360deg)]" />
+            </div>
+            <a
+              href="#booking"
+              className="relative inline-flex items-center gap-3 bg-brand-primary/60 backdrop-blur-md text-white px-8 py-4 rounded-full text-sm font-semibold hover:bg-brand-primary/80 transition-luxury cursor-pointer shadow-[0_0_15px_rgba(139,29,48,0.5)] border border-brand-primary/50"
+            >
+              <span>Termin vereinbaren</span>
+              <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-white group-hover:translate-x-1 transition-luxury">
+                <ArrowRight size={14} className="stroke-[3]" />
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </section>

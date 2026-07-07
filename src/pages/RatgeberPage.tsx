@@ -1,4 +1,4 @@
-import { ChevronRight, Droplets, Shield, Clock, Heart, Activity, Sparkles, Stethoscope, Wind, Apple, Baby, ArrowLeft } from 'lucide-react';
+import { ArrowRight, Droplets, Shield, Clock, Heart, Activity, Sparkles, Stethoscope, Wind, Apple, Baby, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FadeIn from '../components/FadeIn';
 import SEO from '../components/SEO';
@@ -276,10 +276,12 @@ export default function RatgeberPage() {
                     </p>
                     <a 
                       href="#booking"
-                      className={`inline-flex items-center gap-2 bg-brand-primary hover:bg-brand-primary-dark text-white px-8 py-4 rounded-full font-semibold transition-luxury text-sm md:text-base group shadow-lg ${!isEven ? 'flex-row-reverse' : ''}`}
+                      className="relative inline-flex items-center gap-3 bg-brand-primary/60 backdrop-blur-md text-white px-8 py-4 rounded-full text-sm font-semibold hover:bg-brand-primary/80 transition-luxury cursor-pointer shadow-[0_0_15px_rgba(139,29,48,0.5)] border border-brand-primary/50"
                     >
-                      {item.buttonText}
-                      <ChevronRight className={`w-5 h-5 ${!isEven ? 'group-hover:-translate-x-1 rotate-180' : 'group-hover:translate-x-1'} transition-transform`} />
+                      <span>Termin vereinbaren</span>
+                      <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-white group-hover:translate-x-1 transition-luxury">
+                        <ArrowRight size={14} className="stroke-[3]" />
+                      </div>
                     </a>
                   </div>
                 </div>
