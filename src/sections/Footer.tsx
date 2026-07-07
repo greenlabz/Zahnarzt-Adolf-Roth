@@ -1,4 +1,4 @@
-import { Phone } from 'lucide-react';
+import { Phone, MapPin, Mail, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
@@ -12,12 +12,22 @@ export default function Footer() {
     window.dispatchEvent(new CustomEvent('open-legal', { detail: { tab: 'datenschutz' } }));
   };
 
+  const openingHours = [
+    'Dienstag: 08:00–12:00, 14:00–18:00',
+    'Mittwoch: 08:00–12:00',
+    'Donnerstag: 08:00–12:00, 14:00–18:00',
+    'Freitag: 08:00–12:00',
+    'Samstag: Geschlossen',
+    'Sonntag: Geschlossen',
+    'Montag: 08:00–12:00, 14:00–18:00'
+  ];
+
   return (
     <footer className="bg-[#9c2c40] text-white pt-24 pb-8 relative overflow-hidden w-full">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:items-stretch mb-16">
           {/* Brand Column */}
-          <div className="md:col-span-1 text-left">
+          <div className="md:col-span-1 h-full flex flex-col text-left">
             <div className="flex items-center mb-6">
               <img
                 src="/A.R.Logo Clean.png"
@@ -25,15 +35,15 @@ export default function Footer() {
                 className="h-20 w-auto scale-[1.5] origin-left brightness-0 invert opacity-90"
               />
             </div>
-            <p className="text-slate-300 text-sm font-light leading-relaxed pr-4">
+            <p className="text-slate-300 text-sm font-light leading-relaxed pr-4 mt-auto">
               Moderne Zahnheilkunde in Neuenstadt am Kocher. Seit über 30 Jahren.
             </p>
           </div>
 
           {/* Navigation */}
-          <div className="text-left">
+          <div className="text-left h-full flex flex-col">
             <h4 className="font-mono text-[10px] uppercase tracking-widest text-slate-500 mb-6">Navigation</h4>
-            <ul className="space-y-4 text-sm text-slate-300 font-light">
+            <ul className="space-y-4 text-sm text-slate-300 font-light mt-auto">
               <li><a href="#services" className="hover:text-white transition-luxury">Leistungen</a></li>
               <li><a href="#about" className="hover:text-white transition-luxury">Praxis</a></li>
               <li><a href="#ablauf" className="hover:text-white transition-luxury">Ablauf</a></li>
@@ -45,26 +55,50 @@ export default function Footer() {
           </div>
 
           {/* Kontakt */}
-          <div className="text-left">
+          <div className="text-left h-full flex flex-col">
             <h4 className="font-mono text-[10px] uppercase tracking-widest text-slate-500 mb-6">Kontakt</h4>
-            <ul className="space-y-4 text-sm text-slate-300 font-light">
+            <ul className="space-y-4 text-sm text-slate-300 font-light mt-auto">
               <li>
-                <p>Cleversulzbacher Str. 10, 74196</p>
-                <p>Neuenstadt am Kocher</p>
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-5 h-5 mt-0.5 text-slate-400 shrink-0" />
+                  <div>
+                    <p>Cleversulzbacher Str. 10</p>
+                    <p>74196 Neuenstadt am Kocher</p>
+                  </div>
+                </div>
               </li>
               <li>
-                <a href="tel:07139452176" className="hover:text-white transition-luxury">07139 452176</a>
+                <div className="flex items-center gap-3">
+                  <Phone className="w-5 h-5 text-slate-400 shrink-0" />
+                  <a href="tel:07139452176" className="hover:text-white transition-luxury">07139 452176</a>
+                </div>
               </li>
               <li>
-                <a href="mailto:info@zahnaerzte-roth.de" className="hover:text-white transition-luxury">info@zahnaerzte-roth.de</a>
+                <div className="flex items-center gap-3">
+                  <Mail className="w-5 h-5 text-slate-400 shrink-0" />
+                  <a href="mailto:info@zahnaerzte-roth.de" className="hover:text-white transition-luxury">info@zahnaerzte-roth.de</a>
+                </div>
+              </li>
+              <li className="pt-4 border-t border-white/10">
+                <div className="flex items-start gap-3">
+                  <Clock className="w-5 h-5 mt-0.5 text-slate-400 shrink-0" />
+                  <div>
+                    <p className="font-medium mb-1">Öffnungszeiten</p>
+                    <ul className="space-y-1 text-slate-300">
+                      {openingHours.map((line) => (
+                        <li key={line}>{line}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </li>
             </ul>
           </div>
 
           {/* Rechtliches */}
-          <div className="text-left">
+          <div className="text-left h-full flex flex-col">
             <h4 className="font-mono text-[10px] uppercase tracking-widest text-slate-500 mb-6">Rechtliches</h4>
-            <ul className="space-y-4 text-sm text-slate-300 font-light">
+            <ul className="space-y-4 text-sm text-slate-300 font-light mt-auto">
               <li>
                 <button onClick={openImpressum} className="hover:text-white transition-luxury cursor-pointer text-left">
                   Impressum
@@ -86,7 +120,7 @@ export default function Footer() {
           </div>
           <div className="flex items-center gap-2">
             <Phone size={12} className="text-slate-400" />
-            <span>Notfall außerhalb der Sprechzeiten: zahnärztlicher Notdienst über <a href="tel:+4976112012000" className="font-bold text-slate-400 hover:text-white transition-luxury">0761 120120 00</a></span>
+            <span>Notfall außerhalb der Sprechzeiten: zahnärztlicher Notdienst über <a href="tel:+497****2000" className="font-bold text-slate-400 hover:text-white transition-luxury">0761 120120 00</a></span>
           </div>
         </div>
       </div>

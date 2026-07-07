@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ShieldCheck, Heart, Award, Smile, ArrowUpRight, Activity, Moon, Layers, Crosshair, Wrench, Zap, Stethoscope, ArrowLeft } from 'lucide-react';
+import { ShieldCheck, Heart, Award, Smile, ArrowUpRight, Activity, Moon, Layers, Crosshair, Wrench, Zap, Stethoscope, ArrowLeft, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 
@@ -178,15 +178,24 @@ export default function LeistungenPage() {
           Zurück zur Startseite
         </Link>
 
-        {/* Header */}
-        <div className="mb-16 text-center max-w-2xl mx-auto">
-          <p className="font-mono text-xs font-bold uppercase tracking-widest text-brand-blue mb-3">Alle Leistungen</p>
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-brand-blue-dark leading-tight mb-6">
-            Unser komplettes <span className="text-gradient font-serif italic pr-2">Leistungsspektrum</span>
-          </h1>
-          <p className="text-base text-slate-500 font-light leading-relaxed">
+        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-brand-blue-dark leading-tight mb-10">
+          Unser komplettes <span className="text-gradient font-serif italic pr-2">Leistungsspektrum</span>
+        </h1>
+
+        {/* Primary CTA */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 mb-12">
+          <p className="text-base text-slate-500 font-light leading-relaxed max-w-xl">
             Entdecken Sie alle unsere Behandlungsfelder im Detail. Tippen Sie auf eine Kachel, um mehr zu erfahren.
           </p>
+          <a
+            href="#booking"
+            className="relative inline-flex items-center gap-3 bg-brand-primary/60 backdrop-blur-md text-white px-8 py-4 rounded-full text-sm font-semibold hover:bg-brand-primary/80 transition-luxury cursor-pointer shadow-[0_0_15px_rgba(139,29,48,0.5)] border border-brand-primary/50"
+          >
+            <span>Termin vereinbaren</span>
+            <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-white group-hover:translate-x-1 transition-luxury">
+              <ArrowRight size={14} className="stroke-[3]" />
+            </div>
+          </a>
         </div>
 
         {/* Bento Grid – Desktop: unregelmäßig, Mobile: 1 Spalte */}
