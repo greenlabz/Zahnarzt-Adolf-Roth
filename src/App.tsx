@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './sections/Header';
 import Footer from './sections/Footer';
 import FloatingContact from './components/FloatingContact';
-import BookingMaintenanceToast from './components/BookingMaintenanceToast';
 import EmailContactModal from './components/EmailContactModal';
 import LegalModal from './components/LegalModal';
 import CookieBanner from './components/CookieBanner';
@@ -73,7 +72,6 @@ export default function App() {
         </Routes>
         <Footer />
         <FloatingContact />
-        <BookingMaintenanceToast />
         <EmailContactModal />
         <LegalModal />
         <CookieBanner />
