@@ -12,15 +12,7 @@ export default function Footer() {
     window.dispatchEvent(new CustomEvent('open-legal', { detail: { tab: 'datenschutz' } }));
   };
 
-  const openingHours = [
-    'Dienstag: 08:00–12:00, 14:00–18:00',
-    'Mittwoch: 08:00–12:00',
-    'Donnerstag: 08:00–12:00, 14:00–18:00',
-    'Freitag: 08:00–12:00',
-    'Samstag: Geschlossen',
-    'Sonntag: Geschlossen',
-    'Montag: 08:00–12:00, 14:00–18:00'
-  ];
+  const openingHours = 'Mo/Do 08:00–12:00, 14:00–18:00 · Di+Mi+Fr 08:00–12:00 · Sa+So geschlossen';
 
   return (
     <footer className="bg-[#9c2c40] text-white pt-24 pb-8 relative overflow-hidden w-full">
@@ -57,40 +49,22 @@ export default function Footer() {
           {/* Kontakt */}
           <div className="text-left h-full flex flex-col">
             <h4 className="font-mono text-[10px] uppercase tracking-widest text-slate-500 mb-6">Kontakt</h4>
-            <ul className="space-y-4 text-sm text-slate-300 font-light mt-auto">
-              <li>
-                <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 mt-0.5 text-slate-400 shrink-0" />
-                  <div>
-                    <p>Cleversulzbacher Str. 10</p>
-                    <p>74196 Neuenstadt am Kocher</p>
-                  </div>
-                </div>
+            <ul className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-300 font-light">
+              <li className="flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-slate-400 shrink-0" />
+                <span>Cleversulzbacher Str. 10, 74196 Neuenstadt am Kocher</span>
               </li>
-              <li>
-                <div className="flex items-center gap-3">
-                  <Phone className="w-5 h-5 text-slate-400 shrink-0" />
-                  <a href="tel:07139452176" className="hover:text-white transition-luxury">07139 452176</a>
-                </div>
+              <li className="flex items-center gap-2">
+                <Phone className="w-4 h-4 text-slate-400 shrink-0" />
+                <a href="tel:07139452176" className="hover:text-white transition-luxury">07139 452176</a>
               </li>
-              <li>
-                <div className="flex items-center gap-3">
-                  <Mail className="w-5 h-5 text-slate-400 shrink-0" />
-                  <a href="mailto:info@zahnaerzte-roth.de" className="hover:text-white transition-luxury">info@zahnaerzte-roth.de</a>
-                </div>
+              <li className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-slate-400 shrink-0" />
+                <a href="mailto:info@zahnaerzte-roth.de" className="hover:text-white transition-luxury">info@zahnaerzte-roth.de</a>
               </li>
-              <li className="pt-4 border-t border-white/10">
-                <div className="flex items-start gap-3">
-                  <Clock className="w-5 h-5 mt-0.5 text-slate-400 shrink-0" />
-                  <div>
-                    <p className="font-medium mb-1">Öffnungszeiten</p>
-                    <ul className="space-y-1 text-slate-300">
-                      {openingHours.map((line) => (
-                        <li key={line}>{line}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
+              <li className="flex items-center gap-2">
+                <Clock className="w-4 h-4 text-slate-400 shrink-0" />
+                <span className="text-slate-300">{openingHours}</span>
               </li>
             </ul>
           </div>
