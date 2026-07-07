@@ -9,6 +9,7 @@ import LegalModal from './components/LegalModal';
 import CookieBanner from './components/CookieBanner';
 import LandingPage from './pages/LandingPage';
 import LeistungenPage from './pages/LeistungenPage';
+import NotFoundPage from './pages/NotFoundPage';
 import RatgeberPage from './pages/RatgeberPage';
 import ImpressumPage from './pages/ImpressumPage';
 
@@ -65,6 +66,7 @@ export default function App() {
           <Route path="/leistungen" element={<LeistungenPage />} />
           <Route path="/ratgeber" element={<RatgeberPage />} />
           <Route path="/impressum" element={<ImpressumPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <Footer />
         <FloatingContact />
