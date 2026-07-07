@@ -49,16 +49,16 @@ export default function About() {
           {/* Stats Grid */}
           <div className="grid grid-cols-3 gap-6 pt-10 border-t border-slate-100/80 text-left">
             <div>
-              <span className="block text-4xl md:text-5xl font-extrabold text-gradient-primary tracking-tight">15</span>
-              <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400">Min durchschnittliche Wartezeit</span>
+              <span className="block text-4xl md:text-5xl font-extrabold text-gradient-primary tracking-tight">98%</span>
+              <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400">Weiterempfehlung</span>
             </div>
             <div>
-              <span className="block text-4xl md:text-5xl font-extrabold text-gradient-primary tracking-tight">8</span>
-              <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400">Jahre im Team</span>
+              <span className="block text-4xl md:text-5xl font-extrabold text-gradient-primary tracking-tight">30+</span>
+              <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400">Jahre Praxiserfahrung</span>
             </div>
             <div>
-              <span className="block text-4xl md:text-5xl font-extrabold text-gradient-primary tracking-tight">&lt;2h</span>
-              <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400">Notfall-Reaktionszeit</span>
+              <span className="block text-4xl md:text-5xl font-extrabold text-gradient-primary tracking-tight">5</span>
+              <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400">Fachkräfte im Team</span>
             </div>
           </div>
         </div>
