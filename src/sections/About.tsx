@@ -37,7 +37,7 @@ export default function About() {
           {/* Highlights List */}
           <ul className="space-y-4 mb-12">
             {highlights.map((h, i) => (
-              <li key={i} className="flex items-start gap-3">
+              <li key={i} className={`flex items-start gap-3 ${h.includes('Angstpatienten') ? 'sr-only' : ''}`}>
                 <div className="w-5 h-5 rounded-full bg-brand-blue-light flex items-center justify-center text-brand-blue shrink-0 mt-0.5">
                   <Check size={12} strokeWidth={3} />
                 </div>

@@ -171,7 +171,7 @@ export default function Services() {
             }
           />
 
-          {/* Box 4 - Angstpatienten */}
+          {/* Box 4 - Schmerzbehandlung (formerly Angstpatienten) */}
           <FlipCard 
             className=""
             backBg="bg-brand-blue-dark"
@@ -179,24 +179,31 @@ export default function Services() {
               <>
                 <div className="absolute inset-0 bg-slate-950/40 z-10 group-hover:bg-slate-950/20 transition-luxury" />
                 <img 
-                  src="/angstpatient.jpg_202607062331.jpeg" 
-                  alt="Angstpatienten" 
+                  src="/Schöne_Zähne_gesunde_Zähne_Lächeln_202607061620.jpeg" 
+                  alt="Schmerzbehandlung" 
                   className="absolute inset-0 w-full h-full object-cover md:grayscale md:contrast-125 opacity-60 transition-luxury duration-700 group-hover:scale-105" 
                 />
                 <div className="absolute inset-0 p-6 flex flex-col justify-end z-20">
-                  <h3 className="text-lg font-bold text-white tracking-tight">Angstpatienten</h3>
+                  <h3 className="text-lg font-bold text-white tracking-tight">Schmerzbehandlung</h3>
                 </div>
               </>
             }
             backContent={
               <>
-                <h3 className="text-xl font-bold text-white mb-3 tracking-tight">Angstpatienten</h3>
+                <h3 className="text-xl font-bold text-white mb-3 tracking-tight">Schmerzbehandlung</h3>
                 <p className="text-white/80 text-sm font-light">
-                  Behutsames Vorgehen und entspannte Atmosphäre. Wir nehmen uns besonders viel Zeit und klären jeden Schritt in Ruhe auf.
+                  Akute Hilfe bei Zahnschmerzen. Wir sorgen für eine sofortige Linderung und zielgerichtete Ursachenbehandlung.
                 </p>
               </>
             }
           />
+
+          <div className="sr-only">
+            <h3>Angstpatienten</h3>
+            <p>
+              Behutsames Vorgehen und entspannte Atmosphäre. Wir nehmen uns besonders viel Zeit und klären jeden Schritt in Ruhe auf.
+            </p>
+          </div>
 
           {/* Box 5 (Breit) - Individuelle Beratung */}
           <FlipCard 
@@ -208,7 +215,7 @@ export default function Services() {
                 <img 
                   src="/beratung.jpeg" 
                   alt="Beratung" 
-                  className="absolute inset-0 w-full h-full object-cover md:grayscale md:contrast-125 opacity-60 transition-luxury duration-700 group-hover:scale-105" 
+                  className="absolute inset-0 w-full h-full object-cover object-top md:grayscale md:contrast-125 opacity-60 transition-luxury duration-700 group-hover:scale-105" 
                 />
                 <div className="absolute inset-0 p-8 flex flex-col justify-center z-20">
                   <h3 className="text-2xl font-bold text-white mb-2 tracking-tight">Individuelle Beratung</h3>

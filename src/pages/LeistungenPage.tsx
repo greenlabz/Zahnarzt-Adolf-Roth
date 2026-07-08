@@ -30,14 +30,16 @@ const servicesList = [
     icon: Heart,
     img: "/angstpatient.jpg_202607062331.jpeg",
     desc: "Behutsames Vorgehen und entspannte Atmosphäre, um Ihnen die Behandlung so angenehm wie möglich zu gestalten.",
-    span: "md:col-span-1"
+    span: "md:col-span-1",
+    isHidden: true
   },
   {
     title: "Individuelle Beratung",
     icon: ShieldCheck,
     img: "/beratung.jpeg",
     desc: "Ausführliche Diagnostik und transparente Aufklärung. Wir nehmen uns Zeit für Ihre Fragen und Bedürfnisse.",
-    span: "md:col-span-2"
+    span: "md:col-span-2",
+    objectPosition: "object-top"
   },
   {
     title: "Parodontalbehandlung",
@@ -65,7 +67,8 @@ const servicesList = [
     icon: Crosshair,
     img: "/Zahnarztpraxis_mit_Beratung_2K_202607061615.jpeg",
     desc: "Präzise Kiefergelenksvermessung und funktionelle Therapie zur Wiederherstellung der optimalen Bisslage.",
-    span: "md:col-span-2"
+    span: "md:col-span-2",
+    objectPosition: "object-top"
   },
   {
     title: "Reparaturen von Zahnersatz",
@@ -90,9 +93,18 @@ const servicesList = [
   }
 ];
 
-function ServiceCard({ service, minH }: { service: typeof servicesList[0]; minH: string }) {
+function ServiceCard({ service, minH }: { service: typeof servicesList[0] & { isHidden?: boolean; objectPosition?: string }; minH: string }) {
   const [isFlipped, setIsFlipped] = useState(false);
   const Icon = service.icon;
+
+  if (service.isHidden) {
+    return (
+      <div className="sr-only">
+        <h2>{service.title}</h2>
+        <p>{service.desc}</p>
+      </div>
+    );
+  }
 
   return (
     <div
@@ -117,7 +129,7 @@ function ServiceCard({ service, minH }: { service: typeof servicesList[0]; minH:
           <img
             src={service.img}
             alt={service.title}
-            className="absolute inset-0 w-full h-full object-cover grayscale contrast-125 opacity-60 transition-luxury duration-700"
+            className={`absolute inset-0 w-full h-full object-cover grayscale contrast-125 opacity-60 transition-luxury duration-700 ${service.objectPosition || 'object-center'}`}
           />
           <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end z-20">
             <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center backdrop-blur-md mb-3 border border-white/20">
@@ -211,7 +223,7 @@ export default function LeistungenPage() {
         </div>
 
         {/* Bento Grid – Desktop: unregelmäßig, Mobile: 1 Spalte */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 md:gap-6 auto-rows-[240px] md:auto-rows-[260px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 md:gap-6 auto-rows-[240px] md:auto-rows-[260px] grid-flow-row-dense">
           {servicesList.map((service, index) => (
             <ServiceCard
               key={index}

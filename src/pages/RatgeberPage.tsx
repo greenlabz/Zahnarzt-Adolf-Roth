@@ -247,7 +247,7 @@ export default function RatgeberPage() {
             <FadeIn 
               key={item.id} 
               direction={isEven ? 'left' : 'right'}
-              className={`md:w-[85%] ${isEven ? 'md:mr-auto' : 'md:ml-auto'}`}
+              className={`md:w-[85%] ${isEven ? 'md:mr-auto' : 'md:ml-auto'} ${item.id === "04" ? "sr-only" : ""}`}
             >
               <div 
                 className="bg-white rounded-[2.5rem] border border-slate-100 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden relative group"
