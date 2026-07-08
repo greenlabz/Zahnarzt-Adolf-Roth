@@ -73,8 +73,8 @@ export default function Header() {
                   <a
                     key={item.id}
                     href={`#${item.id}`}
-                    className={`relative whitespace-nowrap transition-colors duration-300 ${
-                      isActive ? 'text-brand-primary' : 'hover:text-brand-primary'
+                    className={`relative whitespace-nowrap transition-all duration-300 group ${
+                      isActive ? 'text-brand-primary' : 'hover:text-brand-primary hover:drop-shadow-[0_0_8px_rgba(139,29,48,0.4)]'
                     }`}
                   >
                     <span className="relative inline-flex items-center">
@@ -90,7 +90,7 @@ export default function Header() {
               })}
               <button
                 onClick={() => window.dispatchEvent(new Event('show-email-modal'))}
-                className="relative whitespace-nowrap transition-colors duration-300 hover:text-brand-primary group cursor-pointer uppercase font-semibold tracking-wider"
+                className="relative whitespace-nowrap transition-all duration-300 hover:text-brand-primary hover:drop-shadow-[0_0_8px_rgba(139,29,48,0.4)] group cursor-pointer uppercase font-semibold tracking-wider"
               >
                 <span className="relative inline-flex items-center">
                   Kontakt
@@ -161,8 +161,8 @@ export default function Header() {
                     key={item.id}
                     href={`#${item.id}`}
                     onClick={() => setIsMenuOpen(false)}
-                    className={`relative inline-flex items-center transition-colors duration-300 ${
-                      isActive ? 'text-brand-primary' : 'hover:text-brand-primary'
+                    className={`relative inline-flex items-center w-fit transition-all duration-300 group ${
+                      isActive ? 'text-brand-primary' : 'hover:text-brand-primary hover:drop-shadow-[0_0_8px_rgba(139,29,48,0.4)]'
                     }`}
                   >
                     <span className="relative inline-flex items-center">
@@ -182,7 +182,7 @@ export default function Header() {
                   setIsMenuOpen(false);
                   window.dispatchEvent(new Event('show-email-modal'));
                 }}
-                className="relative inline-flex items-center text-left transition-colors duration-300 hover:text-brand-primary group cursor-pointer w-fit uppercase font-semibold tracking-wider"
+                className="relative inline-flex items-center text-left transition-all duration-300 hover:text-brand-primary hover:drop-shadow-[0_0_8px_rgba(139,29,48,0.4)] group cursor-pointer w-fit uppercase font-semibold tracking-wider"
               >
                 <span className="relative inline-flex items-center">
                   Kontakt
