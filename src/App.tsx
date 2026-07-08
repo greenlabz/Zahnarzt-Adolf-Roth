@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './sections/Header';
 import Footer from './sections/Footer';
 import FloatingContact from './components/FloatingContact';
+import CallPopup from './components/CallPopup';
 import EmailContactModal from './components/EmailContactModal';
 import LegalModal from './components/LegalModal';
 import CookieBanner from './components/CookieBanner';
@@ -34,21 +35,24 @@ function ScrollToAnchor() {
 }
 
 export default function App() {
+  const [isCallPopupOpen, setIsCallPopupOpen] = useState(false);
+
   useEffect(() => {
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const anchor = target.closest('a');
-      if (!anchor) return;
+      const button = target.closest('button');
+      if (!anchor && !button) return;
 
-      const href = anchor.getAttribute('href');
+      const bookingFromAttr = anchor?.getAttribute('href') === '#booking';
+      const bookingFromText =
+        !anchor &&
+        button &&
+        /Termin\s*(buchen|vereinbaren)/i.test((button.textContent || ''));
 
-      if (href === '#booking') {
-        const bookingSection = document.getElementById('booking');
-        if (bookingSection) {
-          e.preventDefault();
-          bookingSection.scrollIntoView({ behavior: 'smooth' });
-        }
-        return;
+      if (bookingFromAttr || bookingFromText) {
+        e.preventDefault();
+        setIsCallPopupOpen(true);
       }
     };
 
@@ -72,6 +76,7 @@ export default function App() {
         </Routes>
         <Footer />
         <FloatingContact />
+        <CallPopup isOpen={isCallPopupOpen} onClose={() => setIsCallPopupOpen(false)} />
         <EmailContactModal />
         <LegalModal />
         <CookieBanner />
