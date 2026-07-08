@@ -1,4 +1,4 @@
-import { Phone, X, Settings } from 'lucide-react';
+import { Phone, X, Wrench } from 'lucide-react';
 
 type CallPopupProps = {
   isOpen: boolean;
@@ -28,7 +28,7 @@ export default function CallPopup({ isOpen, onClose }: CallPopupProps) {
 
             {/* Icon */}
             <div className="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-200/60 flex items-center justify-center mx-auto mb-6">
-              <Settings size={24} className="text-amber-600" />
+              <Wrench size={24} className="text-amber-600" />
             </div>
 
             {/* Content */}
