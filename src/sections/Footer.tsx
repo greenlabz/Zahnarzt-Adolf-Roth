@@ -12,92 +12,103 @@ export default function Footer() {
     window.dispatchEvent(new CustomEvent('open-legal', { detail: { tab: 'datenschutz' } }));
   };
 
-  const openingHours = 'Mo+Do 08:00–12:00, 14:00–18:00 · Di+Mi+Fr 08:00–12:00 · Sa+So geschlossen';
-
   return (
-    <footer className="bg-[#9c2c40] text-white pt-24 pb-8 relative overflow-hidden w-full">
+    <footer className="bg-[#9c2c40] text-white pt-20 pb-8 relative overflow-hidden w-full">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:items-stretch mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-12 mb-16">
+
           {/* Brand Column */}
-          <div className="md:col-span-1 h-full flex flex-col text-left">
-            <div className="flex items-center mb-6">
+          <nav className="flex flex-col" aria-label="Marke">
+            <div className="mb-6">
               <img
                 src="/A.R.Logo Clean.png"
-                alt="Adolf Roth"
+                alt="Zahnarzt Adolf Roth – Logo"
                 className="h-20 w-auto scale-[1.5] origin-left brightness-0 invert opacity-90"
               />
             </div>
-            <p className="text-slate-300 text-sm font-light leading-relaxed pr-4 mt-auto">
-              Moderne Zahnheilkunde in Neuenstadt am Kocher. Seit über 30 Jahren.
+            <p className="text-white/50 text-sm font-light leading-relaxed max-w-[220px]">
+              Moderne Zahnheilkunde in Neuenstadt am Kocher. Seit über 30&nbsp;Jahren.
             </p>
-          </div>
+          </nav>
 
           {/* Navigation */}
-          <div className="text-left h-full flex flex-col">
-            <h4 className="font-mono text-[10px] uppercase tracking-widest text-slate-500 mb-6">Navigation</h4>
-            <ul className="space-y-4 text-sm text-slate-300 font-light mt-auto">
-              <li><a href="#services" className="hover:text-white transition-luxury">Leistungen</a></li>
-              <li><a href="#about" className="hover:text-white transition-luxury">Praxis</a></li>
-              <li><a href="#ablauf" className="hover:text-white transition-luxury">Ablauf</a></li>
-              <li><a href="#reviews" className="hover:text-white transition-luxury">Stimmen</a></li>
-              <li><a href="#faq" className="hover:text-white transition-luxury">FAQ</a></li>
-              <li><a href="#contact" className="hover:text-white transition-luxury">Kontakt</a></li>
-              <li><Link to="/ratgeber" className="font-bold text-white hover:text-brand-gold transition-luxury">Ratgeber</Link></li>
+          <nav className="flex flex-col" aria-label="Seitennavigation">
+            <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/30 mb-5">Navigation</h4>
+            <ul className="space-y-3 text-sm text-white/70 font-light">
+              <li><a href="#services" className="hover:text-white transition-colors duration-200">Leistungen</a></li>
+              <li><a href="#about" className="hover:text-white transition-colors duration-200">Praxis</a></li>
+              <li><a href="#ablauf" className="hover:text-white transition-colors duration-200">Ablauf</a></li>
+              <li><a href="#reviews" className="hover:text-white transition-colors duration-200">Stimmen</a></li>
+              <li><a href="#faq" className="hover:text-white transition-colors duration-200">FAQ</a></li>
+              <li><a href="#contact" className="hover:text-white transition-colors duration-200">Kontakt</a></li>
+              <li><Link to="/ratgeber" className="font-semibold text-white hover:text-white/80 transition-colors duration-200">Ratgeber</Link></li>
             </ul>
-          </div>
+          </nav>
 
           {/* Kontakt */}
-          <div className="text-left h-full flex flex-col">
-            <h4 className="font-mono text-[10px] uppercase tracking-widest text-slate-500 mb-6">Kontakt</h4>
-            <ul className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-300 font-light">
-              <li className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-slate-400 shrink-0" />
-                <span>Cleversulzbacher Str. 10, 74196 Neuenstadt am Kocher</span>
+          <nav className="flex flex-col" aria-label="Kontaktinformationen">
+            <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/30 mb-5">Kontakt</h4>
+            <ul className="space-y-4 text-sm text-white/70 font-light">
+              <li className="flex items-start gap-3">
+                <MapPin className="w-4 h-4 text-white/40 shrink-0 mt-0.5" />
+                <span>Cleversulzbacher Str. 10<br />74196 Neuenstadt am Kocher</span>
               </li>
-              <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-slate-400 shrink-0" />
-                <a href="tel:07139452176" className="hover:text-white transition-luxury">07139 452176</a>
+              <li className="flex items-center gap-3">
+                <Phone className="w-4 h-4 text-white/40 shrink-0" />
+                <a href="tel:07139452176" className="hover:text-white transition-colors duration-200">07139 452176</a>
               </li>
-              <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-slate-400 shrink-0" />
-                <a href="mailto:info@zahnaerzte-roth.de" className="hover:text-white transition-luxury">info@zahnaerzte-roth.de</a>
+              <li className="flex items-center gap-3">
+                <Mail className="w-4 h-4 text-white/40 shrink-0" />
+                <a href="mailto:info@zahnaerzte-roth.de" className="hover:text-white transition-colors duration-200">info@zahnaerzte-roth.de</a>
               </li>
-              <li className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-slate-400 shrink-0" />
-                <span className="text-slate-300">{openingHours}</span>
+              <li className="flex items-start gap-3">
+                <Clock className="w-4 h-4 text-white/40 shrink-0 mt-0.5" />
+                <div className="leading-relaxed">
+                  <span className="block">Mo + Do: 08:00 – 12:00, 14:00 – 18:00</span>
+                  <span className="block">Di + Mi + Fr: 08:00 – 12:00</span>
+                  <span className="block text-white/40">Sa + So: geschlossen</span>
+                </div>
               </li>
             </ul>
-          </div>
+          </nav>
 
           {/* Rechtliches */}
-          <div className="text-left h-full flex flex-col">
-            <h4 className="font-mono text-[10px] uppercase tracking-widest text-slate-500 mb-6">Rechtliches</h4>
-            <ul className="space-y-4 text-sm text-slate-300 font-light mt-auto">
+          <nav className="flex flex-col" aria-label="Rechtliche Hinweise">
+            <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/30 mb-5">Rechtliches</h4>
+            <ul className="space-y-3 text-sm text-white/70 font-light">
               <li>
-                <button onClick={openImpressum} className="hover:text-white transition-luxury cursor-pointer text-left">
+                <button onClick={openImpressum} className="hover:text-white transition-colors duration-200 cursor-pointer text-left">
                   Impressum
                 </button>
               </li>
               <li>
-                <button onClick={openDatenschutz} className="hover:text-white transition-luxury cursor-pointer text-left">
+                <button onClick={openDatenschutz} className="hover:text-white transition-colors duration-200 cursor-pointer text-left">
                   Datenschutzerklärung
                 </button>
               </li>
             </ul>
-          </div>
+          </nav>
+
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] text-slate-500">
-          <div className="text-center md:text-left">
-            <p>Zahnarzt Adolf Roth 2026 — Made in the Lab: <a href="https://www.greenlabz-studio.de/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors">Green Labz Studio</a></p>
-          </div>
-          <div className="flex items-center gap-2">
-            <Phone size={12} className="text-slate-400" />
-            <span>Notfall außerhalb der Sprechzeiten: zahnärztlicher Notdienst über <a href="tel:+497****2000" className="font-bold text-slate-400 hover:text-white transition-luxury">0761 120120 00</a></span>
-          </div>
+        <div className="pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] text-white/30">
+          <p>
+            © Zahnarzt Adolf Roth 2026 — Made in the Lab:&nbsp;
+            <a href="https://www.greenlabz-studio.de/" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-white transition-colors duration-200">
+              Green Labz Studio
+            </a>
+          </p>
+          <p className="flex items-center gap-2">
+            <Phone size={11} className="text-white/30" />
+            <span>
+              Notdienst außerhalb der Sprechzeiten:&nbsp;
+              <a href="tel:076112012000" className="font-semibold text-white/40 hover:text-white transition-colors duration-200">0761 120120 00</a>
+            </span>
+          </p>
         </div>
       </div>
     </footer>
   );
 }
+

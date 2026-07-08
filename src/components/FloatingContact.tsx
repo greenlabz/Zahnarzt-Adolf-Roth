@@ -50,7 +50,7 @@ export default function FloatingContact() {
            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] aspect-square animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0_270deg,#ef4444_360deg)]" />
         </div>
         <a 
-          href="tel:+497****2174" 
+          href="tel:07139452176" 
           className="relative flex items-center justify-center w-14 h-14 bg-[#9c2c40]/80 backdrop-blur-md text-white rounded-full hover:bg-[#9c2c40] transition-luxury shadow-lg border border-white/10"
           title="Anrufen"
         >

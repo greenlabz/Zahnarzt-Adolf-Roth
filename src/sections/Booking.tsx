@@ -1,66 +1,6 @@
-import { useState } from 'react';
-import { Calendar, User, Phone, CheckCircle2, ChevronRight, ChevronLeft } from 'lucide-react';
-
-type Step = 'reason' | 'datetime' | 'contact' | 'success';
+import { Phone, Wrench, Clock, CalendarOff } from 'lucide-react';
 
 export default function Booking() {
-  const [step, setStep] = useState<Step>('reason');
-  const [selectedReason, setSelectedReason] = useState<string>('');
-  const [selectedDate, setSelectedDate] = useState<string>('');
-  const [selectedTime, setSelectedTime] = useState<string>('');
-  const [contactData, setContactData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    isAnxious: false,
-  });
-
-  const reasons = [
-    { id: 'checkup', title: 'Kontrolluntersuchung & Vorsorge', duration: '30 Min', desc: 'Regelmäßiger Check für Ihre Zahngesundheit.' },
-    { id: 'cleaning', title: 'Professionelle Zahnreinigung (PZR)', duration: '60 Min', desc: 'Tiefenreinigung und Zahnsteinentfernung.' },
-    { id: 'pain', title: 'Akute Zahnschmerzen / Notfall', duration: '30 Min', desc: 'Schnelle Hilfe bei akuten Beschwerden.' },
-  ];
-
-  const dates = [
-    { day: 'Mo', date: '22. Jun', full: 'Montag, 22. Juni 2026' },
-    { day: 'Di', date: '23. Jun', full: 'Dienstag, 23. Juni 2026' },
-    { day: 'Mi', date: '24. Jun', full: 'Mittwoch, 24. Juni 2026' },
-    { day: 'Do', date: '25. Jun', full: 'Donnerstag, 25. Juni 2026' },
-    { day: 'Fr', date: '26. Jun', full: 'Freitag, 26. Juni 2026' },
-  ];
-
-  const timeSlots = [
-    '08:30 Uhr', '09:15 Uhr', '10:00 Uhr',
-    '11:15 Uhr', '14:30 Uhr', '15:15 Uhr',
-    '16:00 Uhr', '17:30 Uhr'
-  ];
-
-  const selectedReasonLabel = reasons.find(r => r.id === selectedReason)?.title ?? 'Allgemeine Anfrage';
-
-  const handleContactSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (contactData.name && contactData.email && contactData.phone) {
-      try {
-        await fetch('/api/send-confirmation', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name: contactData.name,
-            email: contactData.email,
-            phone: contactData.phone,
-            isAnxious: contactData.isAnxious,
-            reason: selectedReasonLabel,
-            date: selectedDate,
-            time: selectedTime,
-          }),
-        });
-      } catch {
-        // keep UX smooth even if mail delivery fails
-      }
-      setStep('success');
-    }
-  };
-
   return (
     <section id="booking" className="scroll-margin-top-24 py-32 md:py-48 bg-slate-50/30 relative overflow-hidden w-full">
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-brand-blue/5 blur-[100px] rounded-full pointer-events-none" />
@@ -78,195 +18,41 @@ export default function Booking() {
           </p>
         </div>
 
-        <div className="glass-panel border border-slate-100 rounded-[2.5rem] p-8 md:p-14 min-h-[500px] flex flex-col justify-between shadow-2xl">
-          {step !== 'success' && (
-            <div className="flex items-center justify-between border-b border-slate-100/80 pb-8 mb-10 text-xs font-semibold uppercase tracking-wider text-slate-400">
-              <div className="flex items-center gap-3">
-                <div className={`w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold ${step === 'reason' ? 'bg-brand-blue text-white' : 'bg-brand-blue-light text-brand-blue'}`}>1</div>
-                <span className={step === 'reason' ? 'text-slate-900' : 'text-slate-400'}>Grund</span>
+        <div className="glass-panel border border-slate-100 rounded-[2.5rem] p-8 md:p-14 min-h-[400px] flex flex-col items-center justify-center shadow-2xl">
+          {/* Maintenance Notice */}
+          <div className="flex flex-col items-center text-center max-w-lg">
+            <div className="relative mb-8">
+              <div className="w-20 h-20 rounded-3xl bg-amber-50 border border-amber-200/60 flex items-center justify-center">
+                <Wrench size={32} className="text-amber-500" />
               </div>
-              <ChevronRight size={14} className="text-slate-300" />
-              <div className="flex items-center gap-3">
-                <div className={`w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold ${step === 'datetime' ? 'bg-brand-blue text-white' : step === 'contact' ? 'bg-brand-blue-light text-brand-blue' : 'bg-slate-100 text-slate-400'}`}>2</div>
-                <span className={step === 'datetime' ? 'text-slate-900' : 'text-slate-400'}>Terminwahl</span>
-              </div>
-              <ChevronRight size={14} className="text-slate-300" />
-              <div className="flex items-center gap-3">
-                <div className={`w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold ${step === 'contact' ? 'bg-brand-blue text-white' : 'bg-slate-100 text-slate-400'}`}>3</div>
-                <span className={step === 'contact' ? 'text-slate-900' : 'text-slate-400'}>Kontakt</span>
-              </div>
-              <ChevronRight size={14} className="text-slate-300" />
-            </div>
-          )}
-
-          {step === 'reason' && (
-            <div className="space-y-6 text-left">
-              <h3 className="text-xl font-bold text-slate-900 uppercase tracking-tight mb-6">Wähle den Grund deines Besuchs:</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {reasons.map((r) => (
-                  <button
-                    key={r.id}
-                    onClick={() => { setSelectedReason(r.id); setStep('datetime'); }}
-                    className="p-6 border border-slate-100 rounded-2xl text-left bg-slate-50/50 hover:bg-brand-blue-light/40 hover:border-brand-blue/20 group transition-luxury cursor-pointer"
-                  >
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-base font-bold text-slate-950 group-hover:text-brand-blue transition-luxury">{r.title}</span>
-                      <span className="text-[9px] font-mono font-bold text-brand-blue bg-white border border-brand-blue/10 px-2.5 py-1 rounded-full">{r.duration}</span>
-                    </div>
-                    <p className="text-xs text-slate-500 font-light leading-relaxed">{r.desc}</p>
-                  </button>
-                ))}
+              <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-amber-400 border-2 border-white flex items-center justify-center">
+                <CalendarOff size={12} className="text-white" />
               </div>
             </div>
-          )}
 
-          {step === 'datetime' && (
-            <div className="space-y-8 text-left">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xl font-bold text-slate-900 uppercase tracking-tight">Wähle Datum und Uhrzeit:</h3>
-                <button
-                  type="button"
-                  onClick={() => setStep('reason')}
-                  className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-400 hover:text-brand-blue transition-luxury"
-                >
-                  <ChevronLeft size={12} />
-                  <span>Zurück</span>
-                </button>
-              </div>
+            <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight mb-4">
+              Unser Buchungssystem wird verbessert
+            </h3>
+            <p className="text-slate-500 font-light leading-relaxed mb-3">
+              Wir arbeiten gerade daran, Ihnen ein noch besseres Online-Buchungserlebnis zu bieten. Die Online-Terminvergabe ist daher vorübergehend nicht verfügbar.
+            </p>
+            <p className="text-slate-500 font-light leading-relaxed mb-10">
+              Rufen Sie uns gerne kurz an — wir vereinbaren Ihren Wunschtermin persönlich und unkompliziert!
+            </p>
 
-              <div>
-                <p className="text-[9px] font-mono uppercase tracking-widest text-slate-400 mb-3">Datum:</p>
-                <div className="grid grid-cols-5 gap-3">
-                  {dates.map((d) => (
-                    <button
-                      key={d.date}
-                      onClick={() => setSelectedDate(d.full)}
-                      className={`py-3 rounded-2xl flex flex-col items-center border transition-luxury cursor-pointer ${selectedDate === d.full ? 'bg-brand-blue border-brand-blue text-white shadow-md shadow-brand-blue/20' : 'bg-slate-50 border-slate-100 text-slate-800 hover:bg-slate-100'}`}
-                    >
-                      <span className="text-[9px] font-mono uppercase opacity-75">{d.day}</span>
-                      <span className="text-sm font-bold mt-0.5">{d.date}</span>
-                    </button>
-                  ))}
-                </div>
-              </div>
+            <a
+              href="tel:07139452176"
+              className="inline-flex items-center justify-center gap-3 bg-brand-blue text-white py-4 px-10 rounded-full text-sm font-semibold hover:bg-brand-blue-dark hover:shadow-xl hover:shadow-brand-blue/20 transition-all duration-300 cursor-pointer mb-6"
+            >
+              <Phone size={18} />
+              <span>Jetzt anrufen: 07139 452176</span>
+            </a>
 
-              {selectedDate && (
-                <div>
-                  <p className="text-[9px] font-mono uppercase tracking-widest text-slate-400 mb-3">Verfügbare Uhrzeiten am {selectedDate.split(',')[1]}:</p>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                    {timeSlots.map((t) => (
-                      <button
-                        key={t}
-                        onClick={() => { setSelectedTime(t); setStep('contact'); }}
-                        className="py-3 px-4 border border-slate-100 rounded-2xl bg-slate-50 hover:bg-brand-blue-light/50 hover:border-brand-blue/30 text-center text-xs font-bold text-slate-800 transition-luxury cursor-pointer"
-                      >
-                        {t}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
+            <div className="flex items-center gap-2 text-xs text-slate-400 font-light">
+              <Clock size={13} className="text-slate-300" />
+              <span>Mo + Do: 08:00 – 18:00 · Di + Mi + Fr: 08:00 – 12:00</span>
             </div>
-          )}
-
-          {step === 'contact' && (
-            <form onSubmit={handleContactSubmit} className="space-y-6 text-left">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xl font-bold text-slate-900 uppercase tracking-tight">Deine Kontaktdaten eingeben:</h3>
-                <button
-                  type="button"
-                  onClick={() => setStep('datetime')}
-                  className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-slate-400 hover:text-brand-blue transition-luxury"
-                >
-                  <ChevronLeft size={12} />
-                  <span>Zurück</span>
-                </button>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="flex flex-col gap-1.5">
-                  <label htmlFor="name" className="text-[9px] font-mono uppercase tracking-widest text-slate-400">Vollständiger Name</label>
-                  <div className="relative">
-                    <User size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
-                    <input
-                      type="text"
-                      id="name"
-                      required
-                      placeholder="z. B. Max Mustermann"
-                      value={contactData.name}
-                      onChange={(e) => setContactData({ ...contactData, name: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-100 rounded-2xl py-3.5 pl-12 pr-4 text-slate-800 focus:outline-none focus:border-brand-blue focus:bg-white transition-luxury text-sm"
-                    />
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-1.5">
-                  <label htmlFor="phone" className="text-[9px] font-mono uppercase tracking-widest text-slate-400">Telefonnummer</label>
-                  <div className="relative">
-                    <Phone size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
-                    <input
-                      type="tel"
-                      id="phone"
-                      required
-                      placeholder="z. B. 0176 12345678"
-                      value={contactData.phone}
-                      onChange={(e) => setContactData({ ...contactData, phone: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-100 rounded-2xl py-3.5 pl-12 pr-4 text-slate-800 focus:outline-none focus:border-brand-blue focus:bg-white transition-luxury text-sm"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-1.5">
-                <label htmlFor="email" className="text-[9px] font-mono uppercase tracking-widest text-slate-400">E-Mail-Adresse</label>
-                <div className="relative">
-                  <Calendar size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
-                  <input
-                    type="email"
-                    id="email"
-                    required
-                    placeholder="z. B. max.mustermann@gmail.de"
-                    value={contactData.email}
-                    onChange={(e) => setContactData({ ...contactData, email: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-100 rounded-2xl py-3.5 pl-12 pr-4 text-slate-800 focus:outline-none focus:border-brand-blue focus:bg-white transition-luxury text-sm"
-                  />
-                </div>
-              </div>
-
-              <div className="p-5 border border-brand-gold/15 bg-brand-gold-light/20 rounded-2xl flex items-start gap-3.5">
-                <input
-                  type="checkbox"
-                  id="anxious"
-                  checked={contactData.isAnxious}
-                  onChange={(e) => setContactData({ ...contactData, isAnxious: e.target.checked })}
-                  className="mt-1 accent-brand-gold rounded cursor-pointer"
-                />
-                <label htmlFor="anxious" className="text-xs text-brand-gold font-semibold leading-relaxed select-none cursor-pointer">
-                  Ich leide unter Zahnarztangst und wünsche mir eine besonders behutsame Betreuung und transparente Aufklärung vor jedem Schritt.
-                </label>
-              </div>
-
-              <div className="pt-4">
-                <button
-                  type="submit"
-                  className="w-full bg-brand-blue text-white py-4 rounded-full text-sm font-semibold hover:bg-brand-blue-dark hover:shadow-xl hover:shadow-brand-blue/20 transition-luxury cursor-pointer"
-                >
-                  Termin verbindlich reservieren
-                </button>
-              </div>
-            </form>
-          )}
-
-          {step === 'success' && (
-            <div className="flex flex-col items-center justify-center text-center py-16">
-              <CheckCircle2 size={52} className="text-brand-blue mb-6" />
-              <h3 className="text-3xl font-extrabold text-brand-blue-dark mb-3">Danke für Ihre Anfrage</h3>
-              <p className="text-slate-500 max-w-md">
-                Ihre Anfrage ist bei uns eingegangen. Wir melden uns schnellstmöglich zurück.
-                Eine persönliche Bestätigungs-E-Mail wurde an <strong>{contactData.email || 'Ihr Postfach'}</strong> gesendet.
-              </p>
-            </div>
-          )}
+          </div>
         </div>
       </div>
     </section>
