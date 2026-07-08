@@ -50,7 +50,7 @@ export default function Booking() {
 
             <div className="flex items-center gap-2 text-xs text-slate-400 font-light">
               <Clock size={13} className="text-slate-300" />
-              <span>Mo + Do: 08:00 – 18:00 · Di + Mi + Fr: 08:00 – 12:00</span>
+              <span>Mo, Di + Do: 08:00 – 12:00, 14:00 – 18:00 · Mi + Fr: 08:00 – 12:00</span>
             </div>
           </div>
         </div>

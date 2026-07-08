@@ -39,7 +39,7 @@ const servicesList = [
     img: "/beratung.jpeg",
     desc: "Ausführliche Diagnostik und transparente Aufklärung. Wir nehmen uns Zeit für Ihre Fragen und Bedürfnisse.",
     span: "md:col-span-2",
-    objectPosition: "object-top"
+    objectPosition: "object-contain object-center scale-[0.85] group-hover:scale-95"
   },
   {
     title: "Parodontalbehandlung",
@@ -111,7 +111,7 @@ function ServiceCard({ service, minH }: { service: typeof servicesList[0] & { is
       className={`group relative cursor-pointer rounded-[2rem] ${service.span} ${minH}`}
       style={{ perspective: '1000px' }}
       onClick={(e) => {
-        if ((e.target as HTMLElement).closest('button')) return;
+        if ((e.target as HTMLElement).closest('button') || (e.target as HTMLElement).closest('a')) return;
         setIsFlipped(!isFlipped);
       }}
     >
@@ -119,20 +119,26 @@ function ServiceCard({ service, minH }: { service: typeof servicesList[0] & { is
         className="w-full h-full relative transition-transform duration-700 shadow-lg"
         style={{
           transformStyle: 'preserve-3d',
+          WebkitTransformStyle: 'preserve-3d',
           transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
           borderRadius: '2rem'
         }}
       >
         {/* Front */}
         <div
-          className="absolute inset-0 bg-slate-900 rounded-[2rem] overflow-hidden"
-          style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
+          className={`absolute inset-0 bg-slate-900 rounded-[2rem] overflow-hidden ${isFlipped ? 'pointer-events-none' : 'pointer-events-auto'}`}
+          style={{ 
+            backfaceVisibility: 'hidden', 
+            WebkitBackfaceVisibility: 'hidden',
+            transform: 'rotateY(0deg) translateZ(1px)',
+            WebkitTransform: 'rotateY(0deg) translateZ(1px)'
+          }}
         >
           <div className="absolute inset-0 bg-slate-950/40 z-10 transition-luxury" />
           <img
             src={service.img}
             alt={service.title}
-            className={`absolute inset-0 w-full h-full object-cover grayscale contrast-125 opacity-60 transition-luxury duration-700 ${service.objectPosition || 'object-center'}`}
+            className={`absolute inset-0 w-full h-full grayscale contrast-125 opacity-60 transition-luxury duration-700 ${service.objectPosition?.includes('object-') ? service.objectPosition : 'object-cover ' + (service.objectPosition || 'object-center')}`}
           />
           <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end z-20">
             <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center backdrop-blur-md mb-3 border border-white/20">
@@ -148,11 +154,14 @@ function ServiceCard({ service, minH }: { service: typeof servicesList[0] & { is
 
         {/* Back */}
         <div
-          className="absolute inset-0 bg-[#0a1628] rounded-[2rem] p-6 md:p-8 flex flex-col justify-center items-center text-center"
+          className={`absolute inset-0 bg-[#0a1628] rounded-[2rem] p-6 md:p-8 flex flex-col justify-center items-center text-center ${isFlipped ? 'pointer-events-auto' : 'pointer-events-none'}`}
           style={{
             backfaceVisibility: 'hidden',
             WebkitBackfaceVisibility: 'hidden',
-            transform: 'rotateY(180deg)'
+            transform: 'rotateY(180deg) translateZ(1px)',
+            WebkitTransform: 'rotateY(180deg) translateZ(1px)',
+            transformStyle: 'preserve-3d',
+            WebkitTransformStyle: 'preserve-3d'
           }}
         >
           <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border border-white/20 mb-4">
@@ -160,13 +169,16 @@ function ServiceCard({ service, minH }: { service: typeof servicesList[0] & { is
           </div>
           <h3 className="text-lg font-extrabold uppercase tracking-tight text-white mb-3">{service.title}</h3>
           <p className="text-white/80 text-sm font-light leading-relaxed mb-6">{service.desc}</p>
-          <button
-            type="button"
-            onClick={() => window.dispatchEvent(new CustomEvent('show-call-popup'))}
-            className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/25 text-white px-5 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-white/30 transition-colors shadow-sm cursor-pointer mt-2"
+          <a
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              window.dispatchEvent(new Event('show-call-popup'));
+            }}
+            className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/25 text-white px-5 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-white/30 transition-colors shadow-sm cursor-pointer mt-2 relative z-50"
           >
             Termin vereinbaren <ArrowUpRight size={12} />
-          </button>
+          </a>
         </div>
       </div>
     </div>

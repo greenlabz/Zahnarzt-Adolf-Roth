@@ -20,7 +20,7 @@ function FlipCard({
       className={`group relative rounded-[2rem] cursor-pointer ${className}`}
       style={{ perspective: '1000px' }}
       onClick={(e) => {
-        if ((e.target as HTMLElement).closest('button')) return;
+        if ((e.target as HTMLElement).closest('button') || (e.target as HTMLElement).closest('a')) return;
         setIsFlipped(!isFlipped);
       }}
     >
@@ -28,34 +28,46 @@ function FlipCard({
         className="w-full h-full relative transition-transform duration-700"
         style={{ 
           transformStyle: 'preserve-3d', 
+          WebkitTransformStyle: 'preserve-3d',
           transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)' 
         }}
       >
         {/* Front */}
         <div 
-          className="absolute inset-0 rounded-[2rem] overflow-hidden"
-          style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
+          className={`absolute inset-0 rounded-[2rem] overflow-hidden ${isFlipped ? 'pointer-events-none' : 'pointer-events-auto'}`}
+          style={{ 
+            backfaceVisibility: 'hidden', 
+            WebkitBackfaceVisibility: 'hidden',
+            transform: 'rotateY(0deg) translateZ(1px)',
+            WebkitTransform: 'rotateY(0deg) translateZ(1px)'
+          }}
         >
           {frontContent}
         </div>
         
         {/* Back */}
         <div 
-          className={`absolute inset-0 rounded-[2rem] overflow-hidden ${backBg} p-8 flex flex-col justify-center items-center text-center gap-4`}
+          className={`absolute inset-0 rounded-[2rem] overflow-hidden ${backBg} p-8 flex flex-col justify-center items-center text-center gap-4 ${isFlipped ? 'pointer-events-auto' : 'pointer-events-none'}`}
           style={{ 
             backfaceVisibility: 'hidden', 
             WebkitBackfaceVisibility: 'hidden',
-            transform: 'rotateY(180deg)'
+            transform: 'rotateY(180deg) translateZ(1px)',
+            WebkitTransform: 'rotateY(180deg) translateZ(1px)',
+            transformStyle: 'preserve-3d',
+            WebkitTransformStyle: 'preserve-3d'
           }}
         >
           {backContent}
-          <button
-            type="button"
-            onClick={() => window.dispatchEvent(new CustomEvent('show-call-popup'))}
-            className="mt-2 inline-flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/25 text-white px-5 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-white/30 transition-colors shadow-sm cursor-pointer"
+          <a
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              window.dispatchEvent(new Event('show-call-popup'));
+            }}
+            className="mt-2 relative z-50 inline-flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/25 text-white px-5 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-white/30 transition-colors shadow-sm cursor-pointer"
           >
             Termin vereinbaren <ArrowUpRight size={12} />
-          </button>
+          </a>
         </div>
       </div>
     </div>
@@ -218,7 +230,7 @@ export default function Services() {
                 <img 
                   src="/beratung.jpeg" 
                   alt="Beratung" 
-                  className="absolute inset-0 w-full h-full object-cover object-top md:grayscale md:contrast-125 opacity-60 transition-luxury duration-700 group-hover:scale-105" 
+                  className="absolute inset-0 w-full h-full object-contain object-center scale-[0.85] md:grayscale md:contrast-125 opacity-60 transition-luxury duration-700 group-hover:scale-95" 
                 />
                 <div className="absolute inset-0 p-8 flex flex-col justify-center z-20">
                   <h3 className="text-2xl font-bold text-white mb-2 tracking-tight">Individuelle Beratung</h3>

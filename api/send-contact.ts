@@ -41,7 +41,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       ${escapeHtml(message).replace(/\n/g, '<br/>')}</p>
     `;
 
-    const practiceLogoUrl = 'https://zahnaerzte-roth.de/logo.png';
+    const practiceLogoUrl = 'https://zahnaerzte-roth.de/logo.jpg';
 
     const internalBody = `
       <h1 style="font-size:22px; margin-bottom:8px;">Neue Kontaktanfrage</h1>
@@ -100,13 +100,32 @@ function emailHtml(title: string, bodyContent: string, logoUrl: string) {
                   <div style="color:#0f172a; line-height:1.6;">
                     ${bodyContent}
                   </div>
-                  <div style="border-top:1px solid #e5e7eb; margin: 18px 0 10px;"></div>
-                  <p style="font-size:12px; color:#64748b; line-height:1.5; margin:0;">
-                    Zahnarztpraxis Adolf Roth<br />
-                    Cleversulzbacher Str. 10<br />
-                    74196 Neuenstadt am Kocher<br />
-                    <a href="https://zahnaerzte-roth.de">https://zahnaerzte-roth.de</a>
-                  </p>
+                  <div style="border-top:2px solid #f1f5f9; margin: 32px 0 24px;"></div>
+                  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                    <tr>
+                      <td style="width: 100px; vertical-align: top; padding-right: 16px;">
+                        <img src="${logoUrl}" alt="Zahnarztpraxis Adolf Roth" width="90" style="display:block;" />
+                      </td>
+                      <td style="vertical-align: top; font-size: 13px; color: #64748b; line-height: 1.6;">
+                        <strong style="color: #0f172a; font-size: 14px;">Zahnarztpraxis Adolf Roth</strong><br />
+                        Cleversulzbacher Str. 10<br />
+                        74196 Neuenstadt am Kocher<br />
+                        <br />
+                        <p style="margin:0; font-size: 14px; line-height: 20px;">
+                          <img src="https://img.icons8.com/ios-filled/50/8b1d30/phone.png" alt="Phone" style="width: 14px; height: 14px; margin-right: 6px; vertical-align: middle;" />
+                          <a href="tel:07139452176" style="color: #64748b; text-decoration: none; vertical-align: middle;">07139 452176</a>
+                        </p>
+                        <p style="margin:4px 0 0; font-size: 14px; line-height: 20px;">
+                          <img src="https://img.icons8.com/ios-filled/50/8b1d30/new-post.png" alt="Email" style="width: 14px; height: 14px; margin-right: 6px; vertical-align: middle;" />
+                          <a href="mailto:info@zahnaerzte-roth.de" style="color: #64748b; text-decoration: none; vertical-align: middle;">info@zahnaerzte-roth.de</a>
+                        </p>
+                        <p style="margin:4px 0 0; font-size: 14px; line-height: 20px;">
+                          <img src="https://img.icons8.com/ios-filled/50/8b1d30/domain.png" alt="Website" style="width: 14px; height: 14px; margin-right: 6px; vertical-align: middle;" />
+                          <a href="https://zahnaerzte-roth.de" style="color: #8b1d30; text-decoration: none; font-weight: 500; vertical-align: middle;">zahnaerzte-roth.de</a>
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
                 </td>
               </tr>
             </table>

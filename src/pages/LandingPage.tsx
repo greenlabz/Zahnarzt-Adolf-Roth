@@ -21,7 +21,7 @@ export default function LandingPage() {
           { question: 'Wo befindet sich die Praxis von Zahnarzt Adolf Roth?', answer: 'Die Praxis liegt in der Cleversulzbacher Str. 10 in 74196 Neuenstadt am Kocher, mit kostenlosen Parkplätzen vor und hinter dem Haus.' },
           { question: 'Welche zahnärztlichen Leistungen bietet die Praxis an?', answer: 'Unter anderem Prophylaxe, Zahnersatz, Kinderzahnheilkunde, Angstpatienten-Betreuung, Parodontalbehandlung und Wurzelkanalbehandlung.' },
           { question: 'Wie kann ich einen Termin vereinbaren?', answer: 'Sie können telefonisch, online oder persönlich in der Praxis Termine vereinbaren. Online steht Ihnen die Buchungsoption auf der Startseite zur Verfügung.' },
-          { question: 'Welche Öffnungszeiten hat die Praxis?', answer: 'Montag und Donnerstag 08:00–12:00 und 14:00–18:00; Dienstag, Mittwoch und Freitag 08:00–12:00; Samstag und Sonntag geschlossen.' }
+          { question: 'Welche Öffnungszeiten hat die Praxis?', answer: 'Montag, Dienstag und Donnerstag 08:00–12:00 und 14:00–18:00; Mittwoch und Freitag 08:00–12:00; Samstag und Sonntag geschlossen.' }
         ]}
         rating={4.8}
         breadcrumbs={[
