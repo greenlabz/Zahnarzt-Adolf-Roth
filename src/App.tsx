@@ -56,9 +56,14 @@ export default function App() {
       }
     };
 
+    const handleCustomOpen = () => setIsCallPopupOpen(true);
+
     document.addEventListener('click', handleAnchorClick);
+    window.addEventListener('show-call-popup', handleCustomOpen);
+    
     return () => {
       document.removeEventListener('click', handleAnchorClick);
+      window.removeEventListener('show-call-popup', handleCustomOpen);
     };
   }, []);
 
