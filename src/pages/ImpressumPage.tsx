@@ -96,19 +96,6 @@ export default function ImpressumPage() {
             </section>
 
             <section>
-              <h2 className="text-2xl mb-4 mt-8">Angaben zur Berufshaftpflichtversicherung</h2>
-              <p>
-                <strong>Name und Sitz des Versicherers:</strong><br />
-                ERGO Versicherung AG<br />
-                40198 Düsseldorf
-              </p>
-              <p className="mt-4">
-                <strong>Geltungsraum der Versicherung:</strong><br />
-                Deutschland
-              </p>
-            </section>
-
-            <section>
               <h2 className="text-2xl mb-4 mt-8">Streitschlichtung</h2>
               <p>
                 Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:{' '}

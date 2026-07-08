@@ -160,15 +160,6 @@ function Impressum() {
         <p>Albstadtweg 9, 70567 Stuttgart</p>
       </Section>
 
-      <Section title="Berufshaftpflichtversicherung">
-        <p className="p-3 bg-amber-50 border border-amber-200 rounded-xl text-amber-800 text-xs">
-          ⚠️ Bitte tragen Sie hier Ihre Berufshaftpflichtversicherung ein, z. B.:<br />
-          Name des Versicherers: [Versicherungsgesellschaft]<br />
-          Anschrift: [Adresse]<br />
-          Geltungsbereich: Bundesrepublik Deutschland
-        </p>
-      </Section>
-
       <Section title="Streitschlichtung">
         <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:</p>
         <p><a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer" className="text-brand-blue hover:underline">https://ec.europa.eu/consumers/odr</a></p>
