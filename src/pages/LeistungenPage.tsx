@@ -162,6 +162,7 @@ function ServiceCard({ service, minH }: { service: typeof servicesList[0] & { is
           <p className="text-white/80 text-sm font-light leading-relaxed mb-6">{service.desc}</p>
           <button
             type="button"
+            onClick={() => window.dispatchEvent(new CustomEvent('show-call-popup'))}
             className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/25 text-white px-5 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-white/30 transition-colors shadow-sm cursor-pointer mt-2"
           >
             Termin vereinbaren <ArrowUpRight size={12} />
