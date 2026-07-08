@@ -3,14 +3,14 @@ import { Mail, X, Send } from 'lucide-react';
 
 export default function EmailContactModal() {
   const [isVisible, setIsVisible] = useState(false);
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '', consent: false });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
     const handleTrigger = () => {
       setIsVisible(true);
       setIsSubmitted(false);
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: '', email: '', phone: '', message: '', consent: false });
     };
     window.addEventListener('show-email-modal', handleTrigger);
     return () => window.removeEventListener('show-email-modal', handleTrigger);
@@ -18,7 +18,7 @@ export default function EmailContactModal() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.name && formData.email && formData.message) {
+    if (formData.name && formData.email && formData.message && formData.consent) {
       setIsSubmitted(true);
       setTimeout(() => setIsVisible(false), 3000);
     }
@@ -108,6 +108,19 @@ export default function EmailContactModal() {
                   />
                 </div>
 
+                {/* Phone */}
+                <div className="flex flex-col gap-1.5">
+                  <label htmlFor="modal-phone" className="text-[10px] font-mono uppercase tracking-widest text-white/40">Telefon</label>
+                  <input
+                    type="tel"
+                    id="modal-phone"
+                    placeholder="Ihre Telefonnummer (optional)"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-white placeholder:text-white/25 focus:outline-none focus:border-brand-primary/60 focus:bg-white/8 transition-luxury text-sm"
+                  />
+                </div>
+
                 {/* Message */}
                 <div className="flex flex-col gap-1.5">
                   <label htmlFor="modal-message" className="text-[10px] font-mono uppercase tracking-widest text-white/40">Ihre Nachricht</label>
@@ -120,6 +133,37 @@ export default function EmailContactModal() {
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-white placeholder:text-white/25 focus:outline-none focus:border-brand-primary/60 focus:bg-white/8 transition-luxury text-sm resize-none"
                   />
+                </div>
+
+                {/* Privacy Consent */}
+                <div className="flex items-start gap-3 pt-1">
+                  <div className="pt-0.5">
+                    <input
+                      type="checkbox"
+                      id="modal-consent"
+                      required
+                      checked={formData.consent}
+                      onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
+                      className="w-4 h-4 rounded border-white/20 bg-white/5 accent-brand-primary cursor-pointer mt-0.5"
+                    />
+                  </div>
+                  <label htmlFor="modal-consent" className="text-xs text-white/50 leading-relaxed cursor-pointer select-none">
+                    Ich stimme zu, dass meine Angaben zur Kontaktaufnahme gespeichert und verarbeitet werden. Weitere Informationen finden Sie in der{' '}
+                    <button
+                      type="button"
+                      className="text-white/70 hover:text-white underline decoration-white/30 hover:decoration-white/70 transition-colors"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setIsVisible(false);
+                        setTimeout(() => {
+                          window.dispatchEvent(new CustomEvent('open-legal', { detail: { tab: 'datenschutz' } }));
+                        }, 300);
+                      }}
+                    >
+                      Datenschutzerklärung
+                    </button>
+                    .
+                  </label>
                 </div>
 
                 {/* CTA Button */}
