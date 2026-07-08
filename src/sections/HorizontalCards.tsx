@@ -215,8 +215,8 @@ export default function HorizontalCards() {
             {/* Image 1 */}
             <img 
               ref={img1Ref}
-              src="/Zahnarztpraxis_mit_Beratung_2K_202607061615.jpeg" 
-              alt="Zahnarztpraxis Adolf Roth in Neuenstadt am Kocher - Beratung und angstfreie Behandlung" 
+              src="/vorsorge.jpeg" 
+              alt="Vorsorge und Prophylaxe in der Zahnarztpraxis Adolf Roth in Neuenstadt am Kocher" 
               className="absolute inset-0 w-full h-full object-cover transition-luxury duration-700"
             />
             {/* Image 2 */}
