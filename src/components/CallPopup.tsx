@@ -1,4 +1,4 @@
-import { Phone, X, Wrench } from 'lucide-react';
+import { Phone, X, Wrench, Clock } from 'lucide-react';
 
 type CallPopupProps = {
   isOpen: boolean;
@@ -38,9 +38,21 @@ export default function CallPopup({ isOpen, onClose }: CallPopupProps) {
             <p className="text-slate-500 text-sm font-light leading-relaxed text-center mb-2">
               Unser Online-Terminplaner wird derzeit für Sie verbessert und ist vorübergehend nicht verfügbar.
             </p>
-            <p className="text-slate-500 text-sm font-light leading-relaxed text-center mb-8">
+            <p className="text-slate-500 text-sm font-light leading-relaxed text-center mb-6">
               Vereinbaren Sie Ihren Termin gerne telefonisch — wir sind persönlich für Sie da.
             </p>
+
+            {/* Öffnungszeiten */}
+            <div className="bg-slate-50 rounded-2xl p-4 mb-8 border border-slate-100 text-center">
+              <p className="text-slate-700 text-sm font-medium mb-2 flex justify-center items-center gap-2">
+                <Clock size={16} className="text-brand-blue" /> Unsere Sprechzeiten
+              </p>
+              <div className="text-slate-500 text-sm font-light leading-relaxed">
+                <p>Mo + Do: 08:00 – 12:00, 14:00 – 18:00</p>
+                <p>Di + Mi + Fr: 08:00 – 12:00</p>
+                <p className="text-slate-400">Sa + So: geschlossen</p>
+              </div>
+            </div>
 
             {/* CTA */}
             <a

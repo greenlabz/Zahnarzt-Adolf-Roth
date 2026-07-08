@@ -69,6 +69,7 @@ export default function Footer() {
                   <span className="block text-white/40">Sa + So: geschlossen</span>
                 </div>
               </li>
+
             </ul>
           </nav>
 
