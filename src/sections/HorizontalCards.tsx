@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Heart, Sparkles, Activity } from 'lucide-react';
+import { Shield, Sparkles, Activity } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -149,7 +149,7 @@ export default function HorizontalCards() {
             className="flex items-center gap-8 md:gap-12 pl-12 md:pl-24 pr-12 w-max"
             style={{ willChange: 'transform' }}
           >
-            {/* Card 1: Angstfreie Zahnmedizin */}
+            {/* Card 1: Vorsorge */}
             <div 
               ref={card1Ref} 
               className="w-[300px] sm:w-[380px] md:w-[440px] h-[400px] md:h-[440px] bg-slate-900/60 border border-slate-800 backdrop-blur-md rounded-[2.5rem] p-8 md:p-10 flex flex-col justify-between shadow-2xl relative overflow-hidden group shrink-0"
@@ -157,17 +157,17 @@ export default function HorizontalCards() {
               <div className="absolute top-0 left-0 w-2 h-full bg-brand-gold" />
               <div className="text-left">
                 <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-brand-gold mb-6 group-hover:scale-105 transition-luxury duration-500">
-                  <Heart size={24} />
+                  <Shield size={24} />
                 </div>
-                <h3 className="text-2xl md:text-3xl font-extrabold text-white uppercase tracking-tight mb-3">01 / Angstfreiheit</h3>
+                <h3 className="text-2xl md:text-3xl font-extrabold text-white uppercase tracking-tight mb-3">01 / Vorsorge</h3>
                 <p className="text-white text-xs md:text-sm font-light leading-relaxed">
-                  Wir nehmen uns viel Zeit für dich. Mit einfühlsamer Beratung und schmerzfreien Betäubungsmethoden machen wir deinen Besuch absolut entspannt und stressfrei.
+                  Gesunde Zähne ein Leben lang. Mit regelmäßiger Prophylaxe und professioneller Zahnreinigung (PZR) beugen wir Karies und Parodontitis vor, bevor sie überhaupt entstehen.
                 </p>
               </div>
-              <div className="text-[9px] font-mono tracking-widest text-slate-500 uppercase text-left">Vertrauen & Fürsorge</div>
+              <div className="text-[9px] font-mono tracking-widest text-slate-500 uppercase text-left">Prävention & Pflege</div>
             </div>
 
-            {/* Card 2: Prophylaxe & Ästhetik */}
+            {/* Card 2: Ästhetik */}
             <div 
               ref={card2Ref}
               className="w-[300px] sm:w-[380px] md:w-[440px] h-[400px] md:h-[440px] bg-slate-900/60 border border-slate-800 backdrop-blur-md rounded-[2.5rem] p-8 md:p-10 flex flex-col justify-between shadow-2xl relative overflow-hidden group shrink-0"
@@ -179,13 +179,13 @@ export default function HorizontalCards() {
                 </div>
                 <h3 className="text-2xl md:text-3xl font-extrabold text-white uppercase tracking-tight mb-3">02 / Ästhetik</h3>
                 <p className="text-white text-xs md:text-sm font-light leading-relaxed">
-                  Schöne Zähne sind gesunde Zähne. Durch professionelle Zahnreinigung (PZR) und individuelle ästhetische Zahnbehandlungen verhelfen wir dir zu einem gepflegten, natürlichen Auftritt.
+                  Ein strahlendes Lächeln für mehr Selbstbewusstsein. Wir bieten individuelle ästhetische Zahnbehandlungen für dein perfektes, natürliches Aussehen, wie etwa Bleaching oder schonende Veneers.
                 </p>
               </div>
               <div className="text-[9px] font-mono tracking-widest text-slate-500 uppercase text-left">Design & Perfektion</div>
             </div>
 
-            {/* Card 3: Zahnerhalt & Implantologie */}
+            {/* Card 3: Zahnerhalt */}
             <div 
               ref={card3Ref}
               className="w-[300px] sm:w-[380px] md:w-[440px] h-[400px] md:h-[440px] bg-slate-900/60 border border-slate-800 backdrop-blur-md rounded-[2.5rem] p-8 md:p-10 flex flex-col justify-between shadow-2xl relative overflow-hidden group shrink-0"
@@ -197,7 +197,7 @@ export default function HorizontalCards() {
                 </div>
                 <h3 className="text-2xl md:text-3xl font-extrabold text-white uppercase tracking-tight mb-3">03 / Zahnerhalt</h3>
                 <p className="text-white text-xs md:text-sm font-light leading-relaxed">
-                  Deine natürlichen Zähne stehen bei uns immer an erster Stelle. Sollte dennoch Zahnersatz nötig sein, setzen wir auf hochwertige, biologisch verträgliche Lösungen wie Kronen und Brücken für ein natürliches Gefühl und Aussehen.
+                  Deine natürlichen Zähne stehen bei uns immer an erster Stelle. Durch moderne, schonende Verfahren und hochwertige, biologisch verträgliche Restaurationen erhalten wir deine Zähne langfristig.
                 </p>
               </div>
               <div className="text-[9px] font-mono tracking-widest text-slate-500 uppercase text-left">Biologische Verträglichkeit</div>
