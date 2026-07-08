@@ -36,7 +36,7 @@ const servicesList = [
   {
     title: "Individuelle Beratung",
     icon: ShieldCheck,
-    img: "/beratung_new.png",
+    img: "/beratung_neu.png",
     desc: "Ausführliche Diagnostik und transparente Aufklärung. Wir nehmen uns Zeit für Ihre Fragen und Bedürfnisse.",
     span: "md:col-span-2",
     objectPosition: "object-contain object-center scale-[0.85] group-hover:scale-95"

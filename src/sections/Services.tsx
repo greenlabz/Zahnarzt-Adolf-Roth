@@ -228,7 +228,7 @@ export default function Services() {
               <>
                 <div className="absolute inset-0 bg-slate-950/40 z-10 group-hover:bg-slate-950/20 transition-luxury" />
                 <img 
-                  src="/beratung.jpeg" 
+                  src="/beratung_neu.png" 
                   alt="Beratung" 
                   className="absolute inset-0 w-full h-full object-contain object-center scale-[0.85] md:grayscale md:contrast-125 opacity-60 transition-luxury duration-700 group-hover:scale-95" 
                 />
