@@ -88,12 +88,21 @@ export default function Header() {
                   </a>
                 );
               })}
+              <button
+                onClick={() => window.dispatchEvent(new Event('show-email-modal'))}
+                className="relative whitespace-nowrap transition-colors duration-300 hover:text-brand-primary group cursor-pointer"
+              >
+                <span className="relative inline-flex items-center">
+                  Kontakt
+                  <span className="absolute left-0 -bottom-1 h-[2px] w-full rounded-full bg-brand-primary transition-all duration-300 opacity-0 translate-y-1 group-hover:opacity-80 group-hover:translate-y-0" />
+                </span>
+              </button>
             </div>
           </nav>
 
           {/* Phone */}
           <a
-            href="tel:+497****2174"
+            href="tel:07139452176"
             className={`hidden sm:grid transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
               isScrolled ? 'grid-cols-[0fr] opacity-0 ml-0' : 'grid-cols-[1fr] opacity-100 ml-auto'
             }`}
@@ -168,10 +177,23 @@ export default function Header() {
                 );
               })}
 
+              <button
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  window.dispatchEvent(new Event('show-email-modal'));
+                }}
+                className="relative inline-flex items-center text-left transition-colors duration-300 hover:text-brand-primary group cursor-pointer w-fit"
+              >
+                <span className="relative inline-flex items-center">
+                  Kontakt
+                  <span className="absolute left-0 -bottom-1 h-[2px] w-full rounded-full bg-brand-primary transition-all duration-300 opacity-0 translate-y-1 group-hover:opacity-80 group-hover:translate-y-0" />
+                </span>
+              </button>
+
               <div className="w-full h-px bg-slate-200/50 my-2" />
 
               <a
-                href="tel:+497****2174"
+                href="tel:07139452176"
                 className="flex items-center gap-2 text-brand-primary hover:text-brand-primary transition-colors duration-300"
                 onClick={() => setIsMenuOpen(false)}
               >
