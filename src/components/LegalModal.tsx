@@ -146,11 +146,15 @@ function Impressum() {
         </ul>
         <p className="mt-2">Die berufsrechtlichen Regelungen sind einsehbar unter: <a href="https://www.lzk-bw.de" target="_blank" rel="noopener noreferrer" className="text-brand-blue hover:underline">www.lzk-bw.de</a></p>
       </Section>
-
-      <Section title="Umsatzsteuer-Identifikationsnummer">
-        <p>Gemäß § 4 Nr. 14 UStG sind ärztliche und zahnärztliche Leistungen von der Umsatzsteuer befreit. Soweit umsatzsteuerpflichtige Leistungen erbracht werden, gilt:</p>
-        <p className="mt-2 p-3 bg-amber-50 border border-amber-200 rounded-xl text-amber-800 text-xs">
-          ⚠️ Bitte tragen Sie hier Ihre Steuernummer oder USt-IdNr. ein (falls zutreffend), z. B.: Steuernummer: XX / XXX / XXXXX
+      <Section title="Angaben zur Berufshaftpflichtversicherung">
+        <p>
+          <strong>Name und Sitz des Versicherers:</strong><br />
+          ERGO Versicherung AG<br />
+          40198 Düsseldorf
+        </p>
+        <p className="mt-2">
+          <strong>Geltungsraum der Versicherung:</strong><br />
+          Deutschland
         </p>
       </Section>
 
