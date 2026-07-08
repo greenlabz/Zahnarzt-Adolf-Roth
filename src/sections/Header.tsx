@@ -45,7 +45,7 @@ export default function Header() {
     <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 flex justify-center w-full pointer-events-none px-4">
       <div
         className={`glass-pill-nav rounded-[2rem] flex flex-col transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden pointer-events-auto shadow-lg w-full ${
-          isScrolled ? 'max-w-full sm:max-w-[380px] md:max-w-[340px]' : 'max-w-5xl'
+          isScrolled ? 'max-w-full sm:max-w-[380px] md:max-w-[340px]' : 'max-w-[900px]'
         }`}
       >
         <div
@@ -90,7 +90,7 @@ export default function Header() {
               })}
               <button
                 onClick={() => window.dispatchEvent(new Event('show-email-modal'))}
-                className="relative whitespace-nowrap transition-colors duration-300 hover:text-brand-primary group cursor-pointer"
+                className="relative whitespace-nowrap transition-colors duration-300 hover:text-brand-primary group cursor-pointer uppercase font-semibold tracking-wider"
               >
                 <span className="relative inline-flex items-center">
                   Kontakt
@@ -182,7 +182,7 @@ export default function Header() {
                   setIsMenuOpen(false);
                   window.dispatchEvent(new Event('show-email-modal'));
                 }}
-                className="relative inline-flex items-center text-left transition-colors duration-300 hover:text-brand-primary group cursor-pointer w-fit"
+                className="relative inline-flex items-center text-left transition-colors duration-300 hover:text-brand-primary group cursor-pointer w-fit uppercase font-semibold tracking-wider"
               >
                 <span className="relative inline-flex items-center">
                   Kontakt
