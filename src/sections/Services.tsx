@@ -19,7 +19,10 @@ function FlipCard({
     <div 
       className={`group relative rounded-[2rem] cursor-pointer ${className}`}
       style={{ perspective: '1000px' }}
-      onClick={() => setIsFlipped(!isFlipped)}
+      onClick={(e) => {
+        if ((e.target as HTMLElement).closest('button')) return;
+        setIsFlipped(!isFlipped);
+      }}
     >
       <div 
         className="w-full h-full relative transition-transform duration-700"
@@ -48,7 +51,6 @@ function FlipCard({
           {backContent}
           <button
             type="button"
-            onClick={(e) => { e.stopPropagation(); window.dispatchEvent(new Event('show-call-popup')); }}
             className="mt-2 inline-flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/25 text-white px-5 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-white/30 transition-colors shadow-sm cursor-pointer"
           >
             Termin vereinbaren <ArrowUpRight size={12} />
