@@ -44,7 +44,7 @@ export default function Hero() {
           </p>
 
           {/* Description */}
-          <p className="mt-6 text-sm sm:text-base text-slate-300 font-light max-w-lg leading-relaxed">
+          <p className="sr-only">
             Zahnmedizin aus Neuenstadt am Kocher für Neuenstadt am Kocher, Hardthausen, Langenbrettach, Eberstadt, Oedheim und Bad Friedrichshall. Prophylaxe und Zahnersatz in einem modernen Konzept.
           </p>
 
