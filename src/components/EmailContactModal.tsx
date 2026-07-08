@@ -10,17 +10,42 @@ export default function EmailContactModal() {
     const handleTrigger = () => {
       setIsVisible(true);
       setIsSubmitted(false);
+      setError('');
       setFormData({ name: '', email: '', phone: '', message: '', consent: false });
     };
     window.addEventListener('show-email-modal', handleTrigger);
     return () => window.removeEventListener('show-email-modal', handleTrigger);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.name && formData.email && formData.message && formData.consent) {
-      setIsSubmitted(true);
-      setTimeout(() => setIsVisible(false), 3000);
+      setIsSubmitting(true);
+      setError('');
+      try {
+        const response = await fetch('/api/send-contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            message: formData.message,
+          }),
+        });
+
+        if (!response.ok) {
+          throw new Error('Netzwerkfehler');
+        }
+
+        setIsSubmitted(true);
+        setTimeout(() => setIsVisible(false), 3000);
+      } catch (err) {
+        console.error('Fehler beim Senden:', err);
+        setError('Leider gab es ein Problem beim Senden. Bitte versuchen Sie es später noch einmal.');
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -166,13 +191,20 @@ export default function EmailContactModal() {
                   </label>
                 </div>
 
+                {error && (
+                  <div className="bg-red-500/15 border border-red-500/30 text-red-300 p-3 rounded-xl text-center text-sm">
+                    {error}
+                  </div>
+                )}
+
                 {/* CTA Button */}
                 <button
                   type="submit"
-                  className="w-full mt-2 inline-flex items-center justify-center gap-3 bg-brand-primary/60 backdrop-blur-md text-white px-6 py-4 rounded-full text-sm font-semibold hover:bg-brand-primary/80 transition-luxury cursor-pointer shadow-[0_0_20px_rgba(139,29,48,0.4)] border border-brand-primary/50 hover:-translate-y-0.5"
+                  disabled={isSubmitting}
+                  className="w-full mt-2 inline-flex items-center justify-center gap-3 bg-brand-primary/60 backdrop-blur-md text-white px-6 py-4 rounded-full text-sm font-semibold hover:bg-brand-primary/80 transition-luxury cursor-pointer shadow-[0_0_20px_rgba(139,29,48,0.4)] border border-brand-primary/50 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Send size={16} />
-                  <span>Nachricht senden</span>
+                  <span>{isSubmitting ? 'Wird gesendet...' : 'Nachricht senden'}</span>
                 </button>
               </form>
             )}
