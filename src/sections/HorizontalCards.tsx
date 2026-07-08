@@ -179,7 +179,7 @@ export default function HorizontalCards() {
                 </div>
                 <h3 className="text-2xl md:text-3xl font-extrabold text-white uppercase tracking-tight mb-3">02 / Ästhetik</h3>
                 <p className="text-white text-xs md:text-sm font-light leading-relaxed">
-                  Ein strahlendes Lächeln für mehr Selbstbewusstsein. Wir bieten individuelle ästhetische Zahnbehandlungen für dein perfektes, natürliches Aussehen, wie etwa Bleaching oder schonende Veneers.
+                  Ein strahlendes Lächeln für mehr Selbstbewusstsein. Bei jeder Behandlung achten wir darauf, dass das Ergebnis nicht nur gesund, sondern auch natürlich schön aussieht.
                 </p>
               </div>
               <div className="text-[9px] font-mono tracking-widest text-slate-500 uppercase text-left">Design & Perfektion</div>
