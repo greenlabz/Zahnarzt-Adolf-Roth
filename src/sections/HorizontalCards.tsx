@@ -229,8 +229,8 @@ export default function HorizontalCards() {
             {/* Image 3 */}
             <img 
               ref={img3Ref}
-              src="/zahnersatz_2K_202607061600.jpeg" 
-              alt="Zahnersatz und moderne Zahnmedizin in Neuenstadt am Kocher" 
+              src="/Zahnerhalt.jpeg" 
+              alt="Zahnerhalt in der Zahnarztpraxis Adolf Roth in Neuenstadt am Kocher" 
               className="absolute inset-0 w-full h-full object-cover transition-luxury duration-700"
             />
             
