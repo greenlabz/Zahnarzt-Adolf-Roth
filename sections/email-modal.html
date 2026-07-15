@@ -1,0 +1,27 @@
+<div id="emailModal" class="email-modal" aria-hidden="true">
+    <button type="button" class="email-modal__backdrop" data-email-close tabindex="-1" aria-label="Kontaktfenster schließen"></button>
+    <div class="email-modal__panel" role="dialog" aria-modal="true" aria-labelledby="emailModalTitle" aria-describedby="emailModalDescription" tabindex="-1">
+        <div class="email-modal__glow email-modal__glow--roth" aria-hidden="true"></div>
+        <div class="email-modal__glow email-modal__glow--mint" aria-hidden="true"></div>
+        <button type="button" class="email-modal__close" data-email-close aria-label="Kontaktfenster schließen">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg>
+        </button>
+        <div class="email-modal__content">
+            <div class="email-modal__eyebrow"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m4 7 8 6 8-6"></path></svg><span>Schreiben Sie uns</span></div>
+            <h2 id="emailModalTitle">Wir freuen uns auf Ihre Nachricht.</h2>
+            <p id="emailModalDescription">Schildern Sie uns kurz Ihr Anliegen. Wir melden uns persönlich bei Ihnen.</p>
+            <form id="emailContactForm" class="email-form">
+                <div class="email-form__grid">
+                    <label><span>Vorname</span><input type="text" name="firstName" autocomplete="given-name" required></label>
+                    <label><span>Name</span><input type="text" name="lastName" autocomplete="family-name" required></label>
+                </div>
+                <label><span>Ihre E-Mail-Adresse</span><input type="email" name="email" autocomplete="email" required></label>
+                <label><span>Ihr Anliegen</span><textarea name="message" rows="4" required></textarea></label>
+                <input class="email-form__trap" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+                <label class="email-form__consent"><input type="checkbox" name="privacy" required><span>Ich stimme der Verarbeitung meiner Angaben zur Bearbeitung meiner Anfrage zu. <a href="datenschutz.html">Datenschutzerklärung</a></span></label>
+                <button type="submit" class="email-form__submit">E-Mail senden<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"></path></svg></button>
+                <p class="email-form__status" id="emailFormStatus" role="status" aria-live="polite"></p>
+            </form>
+        </div>
+    </div>
+</div>

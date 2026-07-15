@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>__SEO_TITLE__</title>
+    <meta name="description" content="__META_DESCRIPTION__">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="theme-color" content="#9f263b">
+    <meta name="format-detection" content="telephone=yes">
+    <link rel="canonical" href="__CANONICAL__">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:site_name" content="Zahnarzt Adolf Roth">
+    <meta property="og:title" content="__OG_TITLE__">
+    <meta property="og:description" content="__OG_DESCRIPTION__">
+    <meta property="og:url" content="__CANONICAL__">
+    <meta property="og:image" content="https://zahnaerzte-roth.de/assets/images/og-zahnarzt-adolf-roth.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="__OG_TITLE__ – Zahnarzt Adolf Roth">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="__OG_TITLE__">
+    <meta name="twitter:description" content="__OG_DESCRIPTION__">
+    <meta name="twitter:image" content="https://zahnaerzte-roth.de/assets/images/og-zahnarzt-adolf-roth.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <script src="assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script type="application/ld+json">__SCHEMA__</script>
+</head>
+<body class="subpage-body">
+    <template data-include="sections/navigation.html"></template>
+    <main>
+        <section class="service-detail-hero">
+            <div class="subpage-orb subpage-orb--roth"></div>
+            <div class="subpage-orb subpage-orb--mint"></div>
+            <div class="subpage-container service-detail-hero__inner relative z-10">
+                <a href="leistungen.html" class="subpage-kicker"><iconify-icon icon="mdi:arrow-left"></iconify-icon> Alle Leistungen</a>
+                <p class="subpage-eyebrow">Zahnarzt Adolf Roth · Neuenstadt am Kocher</p>
+                <div class="service-detail-hero__icon service-detail--__ACCENT__">__ICON_SVG__<span>__NUMBER__</span></div>
+                <h1>__TITLE__</h1>
+                <p class="subpage-lead">__LEAD__</p>
+                <div class="subpage-actions">
+                    <a href="#termin" data-booking-modal class="primary-pill">Termin vereinbaren <iconify-icon icon="mdi:calendar-check-outline"></iconify-icon></a>
+                    <a href="index.html#kontakt" class="secondary-pill"><iconify-icon icon="mdi:map-marker-outline"></iconify-icon> Kontakt</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="service-detail-content-section">
+            <div class="subpage-container service-detail-content-grid">
+                <article class="service-detail-prose">
+                    <p class="service-detail-prose__eyebrow">__TITLE__ in Neuenstadt am Kocher</p>
+                    <h2>__HEADING__</h2>
+                    __BODY__
+                    <a href="#termin" data-booking-modal class="primary-pill service-detail-prose__cta">Termin vereinbaren <iconify-icon icon="mdi:arrow-right"></iconify-icon></a>
+                </article>
+                <aside class="service-detail-aside">
+                    <div class="service-detail-aside__icon service-detail--__ACCENT__">__ICON_SVG__</div>
+                    <p class="service-detail-aside__label">Auf einen Blick</p>
+                    <ul>__BENEFITS__</ul>
+                    <p class="service-detail-aside__note">Wir erklären jeden Schritt verständlich und beraten Sie persönlich.</p>
+                </aside>
+            </div>
+        </section>
+
+        __FAQ__
+
+        <section id="termin" class="subpage-cta">
+            <div class="subpage-container subpage-cta__inner">
+                <div><p>Persönlich beraten</p><h2>Ihr nächster Schritt zu gesunden Zähnen.</h2></div>
+                <div class="subpage-actions"><a href="#termin" data-booking-modal class="primary-pill">Termin vereinbaren <iconify-icon icon="mdi:calendar-check-outline"></iconify-icon></a><a href="tel:+497139452176" class="secondary-pill"><iconify-icon icon="mdi:phone-outline"></iconify-icon> 07139 452176</a></div>
+            </div>
+        </section>
+    </main>
+    <template data-include="sections/footer.html"></template>
+    <template data-include="sections/booking-modal.html"></template>
+    <template data-include="sections/email-modal.html"></template>
+    <template data-include="sections/toast.html"></template>
+    <template data-include="sections/cookie-banner.html"></template>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
