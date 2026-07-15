@@ -431,7 +431,7 @@
         .service-detail-hero { position: relative; min-height: 680px; display: flex; align-items: center; padding: 10rem 0 7rem; overflow: hidden; background: radial-gradient(circle at 78% 22%, rgba(62,207,160,0.12), transparent 34%), linear-gradient(135deg, #FCFBFA 0%, #F5F0EF 100%); }
         .service-detail-hero::after { content: ''; position: absolute; inset: 0; opacity: 0.035; background-image: radial-gradient(circle at 1px 1px, #111827 1px, transparent 0); background-size: 26px 26px; }
         .service-detail-hero__inner { max-width: 1040px; }
-        .service-detail-hero h1 { max-width: 850px; color: #111827; font-family: 'Playfair Display', serif; font-size: clamp(3rem, 7vw, 6.7rem); line-height: 0.98; letter-spacing: -0.045em; }
+        .service-detail-hero h1 { max-width: 850px; color: #111827; font-family: 'Playfair Display', serif; font-size: clamp(3rem, 7vw, 6.7rem); line-height: 0.98; letter-spacing: -0.045em; overflow-wrap: anywhere; }
         .service-detail-hero__icon { position: absolute; top: 8.5rem; right: 2rem; display: grid; place-items: center; width: 8rem; height: 8rem; border: 1px solid rgba(156,43,58,0.16); border-radius: 50%; background: rgba(255,255,255,0.56); box-shadow: 0 18px 45px rgba(17,24,39,0.08); }
         .service-detail-hero__icon iconify-icon, .service-detail-hero__icon .service-icon-svg { width: 3rem; height: 3rem; font-size: 3rem; }
         .service-detail-hero__icon span { position: absolute; right: 0.6rem; bottom: 0.4rem; color: #9C2B3A; font-family: 'Playfair Display', serif; font-size: 1.3rem; }
@@ -537,7 +537,8 @@
             .journey-card__icon { margin-bottom: 1.6rem; }
             .subpage-hero { min-height: 640px; padding: 8rem 0 5rem; }
             .service-detail-hero { min-height: 640px; padding: 8rem 0 5rem; }
-            .service-detail-hero__icon { top: 6.8rem; right: 1rem; width: 5rem; height: 5rem; }
+            .service-detail-hero h1 { max-width: 100%; font-size: clamp(2.35rem, 10.2vw, 3.6rem); line-height: 1.02; letter-spacing: -0.04em; }
+            .service-detail-hero__icon { top: 0.6rem; right: 1rem; width: 4rem; height: 4rem; }
             .service-detail-hero__icon iconify-icon, .service-detail-hero__icon .service-icon-svg { width: 2rem; height: 2rem; font-size: 2rem; }
             .service-detail-hero__icon span { right: 0.3rem; bottom: 0.1rem; font-size: 0.9rem; }
             .service-detail-content-section { padding: 5rem 0; }
