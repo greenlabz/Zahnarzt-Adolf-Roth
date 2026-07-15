@@ -62,8 +62,8 @@
         .cookie-banner__button--primary:hover { background: linear-gradient(135deg, #B84556, #8D2131); box-shadow: 0 12px 24px rgba(156,43,58,0.3); }
         .mobile-menu { visibility: hidden; clip-path: inset(0 0 0 100%); pointer-events: none; transition: clip-path 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s; }
         .mobile-menu.open { visibility: visible; clip-path: inset(0); pointer-events: auto; }
-        .sticky-actions { position: fixed; z-index: 950; top: 50%; right: clamp(0.75rem,2vw,1.5rem); display: grid; gap: 0.85rem; opacity: 0; visibility: hidden; pointer-events: none; transform: translate3d(0,-50%,0); transition: opacity 0.28s ease, visibility 0.28s; }
-        .sticky-actions.is-visible { opacity: 1; visibility: visible; pointer-events: auto; transform: translate3d(0,-50%,0); }
+        .sticky-actions { position: fixed; z-index: 950; top: 50%; right: clamp(0.75rem,2vw,1.5rem); display: grid; gap: 0.85rem; opacity: 0; visibility: hidden; pointer-events: none; transform: translate3d(0,-50%,0) scale(0.96); transform-origin: right center; transition: opacity 0.46s ease, visibility 0.46s ease, transform 0.52s cubic-bezier(0.22,1,0.36,1); }
+        .sticky-actions.is-visible { opacity: 1; visibility: visible; pointer-events: auto; transform: translate3d(0,-50%,0) scale(1); }
         #termin { overflow: hidden; }
         .sticky-action { width: 3.9rem; height: 3.9rem; display: grid; place-items: center; border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; color: #FFFFFF; background: linear-gradient(145deg,#B84556,#9C2B3A); box-shadow: 0 10px 22px rgba(156,43,58,0.25), inset 0 1px 0 rgba(255,255,255,0.2); transition: transform 0.22s cubic-bezier(0.22,1,0.36,1), background 0.2s ease, box-shadow 0.22s ease; }
         .sticky-action svg { width: 1.55rem; height: 1.55rem; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
@@ -150,10 +150,9 @@
             .logo-nav { height: 36px; transform: scale(1.35); }
             #navbar a:hover .logo-nav { transform: scale(1.4); }
             .nav-actions { gap: 0.45rem; }
-            #navbar .nav-booking { display: none !important; min-height: 44px; padding: 0.6rem 0.9rem; font-size: 0.78rem; opacity: 0; visibility: hidden; pointer-events: none; transform: translate(-50%, -0.45rem) scale(0.96); transition: opacity 0.36s ease, visibility 0.36s ease, transform 0.42s cubic-bezier(0.22,1,0.36,1); }
-            #navbar.is-scrolled:not(.is-hero-passed) .nav-booking { display: none !important; }
-            #navbar.is-hero-passed .nav-shell { position: relative; }
-            #navbar.is-hero-passed .nav-booking { display: inline-flex !important; position: absolute; left: 50%; opacity: 1; visibility: visible; pointer-events: auto; transform: translate(-50%, 0) scale(1); }
+            #navbar .nav-shell { position: relative; }
+            #navbar .nav-booking { display: inline-flex !important; position: absolute; left: 50%; min-height: 44px; padding: 0.6rem 0.9rem; font-size: 0.78rem; opacity: 0; visibility: hidden; pointer-events: none; transform: translate(-50%, -0.45rem) scale(0.96); transition: opacity 0.46s ease, visibility 0.46s ease, transform 0.52s cubic-bezier(0.22,1,0.36,1); }
+            #navbar.is-hero-passed .nav-booking { opacity: 1; visibility: visible; pointer-events: auto; transform: translate(-50%, 0) scale(1); }
             #navbar.is-hero-passed .nav-actions { flex: 1; justify-content: flex-end; }
             .nav-booking svg { width: 17px; height: 17px; }
             .nav-toggle { width: 44px; height: 44px; }
