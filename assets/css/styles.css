@@ -1,6 +1,6 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; overflow-x: clip; }
-        body { font-family: 'Inter', sans-serif; background: #FFFFFF; color: #111827; }
+        body { max-width: 100%; overflow-x: hidden; font-family: 'Inter', sans-serif; background: #FFFFFF; color: #111827; }
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #F9FAFB; }
         ::-webkit-scrollbar-thumb { background: #9C2B3A; border-radius: 3px; }
@@ -39,8 +39,8 @@
         .card-glow-roth::before { background: radial-gradient(circle at center, rgba(156,43,58,0.06) 0%, transparent 60%); }
         .mint-divider { width: 60px; height: 2px; background: linear-gradient(90deg, transparent, #3ECFA0, transparent); }
         .roth-divider { width: 60px; height: 2px; background: linear-gradient(90deg, transparent, #9C2B3A, transparent); }
-        .toast { position: fixed; bottom: 2rem; right: 2rem; z-index: 10000; padding: 1rem 1.5rem; border-radius: 0.75rem; transform: translateX(120%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); background: #111827; color: #fff; border: 1px solid rgba(156,43,58,0.3); }
-        .toast.show { transform: translateX(0); }
+        .toast { position: fixed; bottom: 2rem; right: 2rem; z-index: 10000; padding: 1rem 1.5rem; border-radius: 0.75rem; opacity: 0; visibility: hidden; pointer-events: none; transform: translateX(0); transition: opacity 0.3s ease, visibility 0.3s ease; background: #111827; color: #fff; border: 1px solid rgba(156,43,58,0.3); }
+        .toast.show { opacity: 1; visibility: visible; pointer-events: auto; }
         .cookie-banner { position: fixed; z-index: 1060; left: clamp(0.75rem, 3vw, 2.5rem); right: clamp(0.75rem, 3vw, 2.5rem); bottom: clamp(0.75rem, 2.5vw, 1.5rem); display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 1rem; padding: 1rem 1.15rem; border: 1px solid rgba(255,255,255,0.78); border-radius: 1.35rem; background: linear-gradient(115deg, rgba(255,255,255,0.78), rgba(248,248,249,0.54)); -webkit-backdrop-filter: blur(24px) saturate(150%); backdrop-filter: blur(24px) saturate(150%); box-shadow: 0 18px 50px rgba(17,24,39,0.16), inset 0 1px 0 rgba(255,255,255,0.9); opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(calc(100% + 2rem)); transition: opacity 0.32s ease, transform 0.5s cubic-bezier(0.22,1,0.36,1), visibility 0.32s ease; }
         .cookie-banner.is-visible { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); }
         .cookie-banner.is-dismissed { opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(calc(100% + 2rem)); }
@@ -62,8 +62,9 @@
         .cookie-banner__button--primary:hover { background: linear-gradient(135deg, #B84556, #8D2131); box-shadow: 0 12px 24px rgba(156,43,58,0.3); }
         .mobile-menu { visibility: hidden; clip-path: inset(0 0 0 100%); pointer-events: none; transition: clip-path 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s; }
         .mobile-menu.open { visibility: visible; clip-path: inset(0); pointer-events: auto; }
-        .sticky-actions { position: fixed; z-index: 950; top: 50%; right: clamp(0.75rem,2vw,1.5rem); display: grid; gap: 0.85rem; opacity: 0; visibility: hidden; pointer-events: none; transform: translate3d(1.75rem,-50%,0); transition: opacity 0.28s ease, transform 0.42s cubic-bezier(0.22,1,0.36,1), visibility 0.28s; }
+        .sticky-actions { position: fixed; z-index: 950; top: 50%; right: clamp(0.75rem,2vw,1.5rem); display: grid; gap: 0.85rem; opacity: 0; visibility: hidden; pointer-events: none; transform: translate3d(0,-50%,0); transition: opacity 0.28s ease, visibility 0.28s; }
         .sticky-actions.is-visible { opacity: 1; visibility: visible; pointer-events: auto; transform: translate3d(0,-50%,0); }
+        #termin { overflow: hidden; }
         .sticky-action { width: 3.9rem; height: 3.9rem; display: grid; place-items: center; border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; color: #FFFFFF; background: linear-gradient(145deg,#B84556,#9C2B3A); box-shadow: 0 10px 22px rgba(156,43,58,0.25), inset 0 1px 0 rgba(255,255,255,0.2); transition: transform 0.22s cubic-bezier(0.22,1,0.36,1), background 0.2s ease, box-shadow 0.22s ease; }
         .sticky-action svg { width: 1.55rem; height: 1.55rem; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
         .sticky-action:hover { transform: translateX(-4px) scale(1.04); background: linear-gradient(145deg,#C45463,#8D2131); box-shadow: 0 14px 28px rgba(156,43,58,0.34), inset 0 1px 0 rgba(255,255,255,0.22); }
