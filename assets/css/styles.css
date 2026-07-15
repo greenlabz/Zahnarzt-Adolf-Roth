@@ -143,6 +143,7 @@
             .nav-brand { width: 190px; min-width: 190px; }
         }
         @media (max-width: 639px) {
+            #navbar { padding-left: clamp(1rem, 7vw, 2rem); padding-right: clamp(1rem, 7vw, 2rem); }
             .nav-shell { min-height: 76px; }
             .nav-brand { width: 138px; min-width: 138px; }
             .logo-nav { transform: scale(1.55); }
