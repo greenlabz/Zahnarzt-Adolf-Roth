@@ -66,14 +66,22 @@
         }
 
         const navbar = document.getElementById('navbar');
-        const updateNavbar = () => navbar?.classList.toggle('is-scrolled', window.scrollY > 80);
+        const hero = document.getElementById('hero');
+        const mobileNavQuery = window.matchMedia('(max-width: 639px)');
+        const updateNavbar = () => {
+            if (!navbar) return;
+            const isScrolled = window.scrollY > 80;
+            const heroHasPassed = hero ? hero.getBoundingClientRect().bottom <= 0 : isScrolled;
+            navbar.classList.toggle('is-scrolled', isScrolled);
+            navbar.classList.toggle('is-hero-passed', mobileNavQuery.matches && heroHasPassed);
+        };
         if (navbar) {
             updateNavbar();
             window.addEventListener('scroll', updateNavbar, { passive: true });
+            window.addEventListener('resize', updateNavbar, { passive: true });
         }
 
         const stickyActions = document.querySelector('[data-sticky-actions]');
-        const hero = document.getElementById('hero');
         if (stickyActions) {
             if (hero && 'IntersectionObserver' in window) {
                 const heroObserver = new IntersectionObserver(([entry]) => {
