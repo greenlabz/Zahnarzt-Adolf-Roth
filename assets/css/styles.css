@@ -143,12 +143,16 @@
             .nav-brand { width: 190px; min-width: 190px; }
         }
         @media (max-width: 639px) {
-            #navbar { padding-left: clamp(1rem, 7vw, 2rem); padding-right: clamp(1rem, 7vw, 2rem); }
-            .nav-shell { min-height: 76px; }
-            .nav-brand { width: 138px; min-width: 138px; }
-            .logo-nav { transform: scale(1.55); }
-            #navbar a:hover .logo-nav { transform: scale(1.6); }
-            #navbar.is-scrolled .nav-shell { min-height: 64px; }
+            #navbar { padding-left: 0.5rem; padding-right: 0.5rem; }
+            .nav-shell { min-height: 68px; padding: 0.35rem 0.55rem 0.35rem 0.7rem; }
+            .nav-brand { width: 92px; min-width: 92px; }
+            .logo-nav { height: 36px; transform: scale(1.35); }
+            #navbar a:hover .logo-nav { transform: scale(1.4); }
+            .nav-actions { gap: 0.45rem; }
+            .nav-booking { display: inline-flex !important; min-height: 44px; padding: 0.6rem 0.9rem; font-size: 0.78rem; }
+            .nav-booking svg { width: 17px; height: 17px; }
+            .nav-toggle { width: 44px; height: 44px; }
+            #navbar.is-scrolled .nav-shell { min-height: 60px; }
             #navbar.is-scrolled .nav-brand { width: 52px; min-width: 52px; }
             #navbar.is-scrolled .logo-nav { transform: scale(1.1); }
             #navbar.is-scrolled a:hover .logo-nav { transform: scale(1.14); }
