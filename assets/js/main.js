@@ -19,7 +19,10 @@
             const setJourneyState = (progress) => {
                 const boundedProgress = Math.min(1, Math.max(0, progress));
                 const activeIndex = Math.min(journeyCards.length - 1, Math.floor(boundedProgress * journeyCards.length));
-                journeyCards.forEach((card, index) => card.classList.toggle('is-active', index === activeIndex));
+                journeyCards.forEach((card, index) => {
+                    card.classList.toggle('is-active', index === activeIndex);
+                    card.classList.toggle('is-complete', index < activeIndex);
+                });
                 journeyDots.forEach((dot, index) => {
                     dot.classList.toggle('is-active', index === activeIndex);
                     dot.classList.toggle('is-complete', index < activeIndex);
@@ -29,7 +32,7 @@
 
             const updateJourney = () => {
                 journeyFrame = 0;
-                if (!desktopJourney.matches || !journeyGrid) {
+                if (!journeyGrid) {
                     setJourneyState(0);
                     return;
                 }

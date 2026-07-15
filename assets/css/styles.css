@@ -513,14 +513,17 @@
             .subpage-cta__inner { align-items: flex-start; flex-direction: column; }
         }
         @media (max-width: 700px) {
-            .journey-section { padding: 4.75rem 0 5rem; }
+            .journey-section { min-height: 360vh; padding: 0; }
+            .journey-stage { position: sticky; top: 0; min-height: 100svh; height: 100svh; padding: 4.75rem 0 2rem; overflow: hidden; }
             .journey-intro > p { font-size: 0.97rem; }
             .journey-progress { margin-bottom: 1.5rem; }
-            .journey-progress__fill { display: none; }
-            .journey-grid { grid-template-columns: 1fr; }
-            .journey-card, .journey-card:nth-child(2) { min-height: 0; padding: 2rem 0 2.2rem; border-right: 0; border-bottom: 1px solid rgba(17,24,39,0.12); }
+            .journey-progress__fill { display: block; }
+            .journey-grid { display: block; min-height: 345px; border-bottom: 0; }
+            .journey-card, .journey-card:nth-child(2) { position: absolute; inset: 0; min-height: 345px; padding: 2rem 1.35rem 2.2rem; border-right: 1px solid rgba(17,24,39,0.12); border-bottom: 1px solid rgba(17,24,39,0.12); opacity: 0; transform: translateY(2.25rem) scale(0.98); pointer-events: none; transition: transform 0.48s cubic-bezier(0.16,1,0.3,1), opacity 0.36s ease, background 0.36s ease, box-shadow 0.48s ease; }
+            .journey-card.is-active { z-index: 4; opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; background: rgba(255,255,255,0.9); box-shadow: 0 20px 42px rgba(17,24,39,0.14); }
+            .journey-card.is-complete { z-index: 1; opacity: 0.24; transform: translateY(-0.6rem) scale(0.965); background: rgba(255,255,255,0.68); box-shadow: 0 8px 22px rgba(17,24,39,0.07); }
             .journey-card:last-child { border-bottom: 0; }
-            .journey-card__number { top: 2rem; right: 0; }
+            .journey-card__number { top: 2rem; right: 1.35rem; }
             .journey-card__icon { margin-bottom: 1.6rem; }
             .subpage-hero { min-height: 640px; padding: 8rem 0 5rem; }
             .service-detail-hero { min-height: 640px; padding: 8rem 0 5rem; }
