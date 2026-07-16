@@ -1,4 +1,4 @@
-import { readFile, writeFile } from 'node:fs/promises';
+import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -210,6 +210,13 @@ const buildSitemap = async () => {
   await writeFile(path.join(root, 'sitemap.xml'), xml, 'utf8');
 };
 
+const buildCrawlerFiles = async () => {
+  const publicDir = path.join(root, 'public');
+  await mkdir(publicDir, { recursive: true });
+  await copyFile(path.join(publicDir, 'robots.txt'), path.join(root, 'robots.txt'));
+  await copyFile(path.join(publicDir, 'llms.txt'), path.join(root, 'llms.txt'));
+};
+
 export async function build() {
   const pages = [
     ['src-layout.html', 'index.html'],
@@ -264,6 +271,7 @@ export async function build() {
     }
     await writeFile(path.join(root, `${service.slug}.html`), html, 'utf8');
   }
+  await buildCrawlerFiles();
   await buildSitemap();
 }
 

@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
-  <title>Zahnarzt Adolf Roth</title>
+  <title>Adolf Roth Zahnarzt</title>
   <rect width="64" height="64" rx="15" fill="#fbfaf9"/>
-  <path d="M20 17c-5 2-7 7-5 13l4 14c1 4 3 7 6 7 3 0 3-6 5-10 1-2 3-2 4 0 2 4 2 10 5 10s5-3 6-7l4-14c2-6 0-11-5-13-4-2-7 1-10 1s-6-3-10-1Z" fill="none" stroke="#9c2b3a" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M24 28h16l-8 8-8-8Z" fill="#9c2b3a" opacity=".14"/>
-  <path d="M32 28v14M26 35h12" fill="none" stroke="#238a69" stroke-width="2.4" stroke-linecap="round"/>
-  <circle cx="48" cy="15" r="3" fill="#238a69"/>
+  <path d="M31 17c-6-7-15-5-17 3-2 7 2 15 4 23 2 8 4 12 8 12 5 0 4-12 8-16" fill="none" stroke="#9f263b" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M33 17c6-7 15-5 17 3 2 7-2 15-4 23-2 8-4 12-8 12-5 0-4-12-8-16" fill="none" stroke="#aeb5b8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="17" y="42" fill="#9f263b" font-family="Georgia,serif" font-size="27" font-weight="500">A</text>
+  <text x="32" y="42" fill="#aeb5b8" font-family="Georgia,serif" font-size="24" font-weight="500">R</text>
 </svg>

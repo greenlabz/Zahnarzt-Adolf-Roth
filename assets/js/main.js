@@ -66,8 +66,8 @@
         }
 
         const navbar = document.getElementById('navbar');
-        const hero = document.getElementById('hero');
-        const mobileNavQuery = window.matchMedia('(max-width: 639px)');
+        const hero = document.getElementById('hero') || document.querySelector('.subpage-hero, .service-detail-hero, .legal-hero');
+        const mobileNavQuery = window.matchMedia('(max-width: 767px)');
         const updateNavbar = () => {
             if (!navbar) return;
             const isScrolled = window.scrollY > 80;
@@ -123,13 +123,16 @@
                     counters.forEach(counter => {
                         const target = parseInt(counter.getAttribute('data-target'));
                         const suffix = counter.getAttribute('data-suffix') || '';
+                        const fallbackValue = parseInt(counter.textContent.replace(/[^0-9-]/g, ''), 10) || 0;
+                        const startValue = Math.min(fallbackValue, target);
                         const duration = 2000;
                         const startTime = performance.now();
                         function update(now) {
                             const elapsed = now - startTime;
                             const progress = Math.min(elapsed / duration, 1);
                             const eased = 1 - Math.pow(1 - progress, 4);
-                            counter.textContent = Math.round(eased * target).toLocaleString('de-DE') + suffix;
+                            const value = startValue + ((target - startValue) * eased);
+                            counter.textContent = Math.round(value).toLocaleString('de-DE') + suffix;
                             if (progress < 1) requestAnimationFrame(update);
                         }
                         requestAnimationFrame(update);
