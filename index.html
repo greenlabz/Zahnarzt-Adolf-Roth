@@ -11,9 +11,9 @@
     <link rel="canonical" href="https://zahnaerzte-roth.de/">
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="image" href="assets/images/zahnarzt-roth-hero.webp" fetchpriority="high">
+    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/playfair-display-latin.woff2" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-latin.woff2" crossorigin>
     <meta property="og:type" content="website">
     <meta property="og:locale" content="de_DE">
     <meta property="og:site_name" content="Zahnarzt Adolf Roth">
@@ -28,11 +28,10 @@
     <meta name="twitter:title" content="Zahnarzt Neuenstadt am Kocher | Ihre Praxis Adolf Roth">
     <meta name="twitter:description" content="Persönliche Zahnmedizin, Prophylaxe und Zahnersatz in Neuenstadt am Kocher.">
     <meta name="twitter:image" content="https://zahnaerzte-roth.de/assets/images/og-zahnarzt-adolf-roth.png">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://code.iconify.design/iconify-design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <script src="assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="assets/css/tailwind.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/iconify-icon.min.js"></script>
+    <script src="assets/js/iconify-icons.js"></script>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"Dentist","name":"Zahnarzt Adolf Roth","url":"https://zahnaerzte-roth.de/","telephone":"+49 7139 452176","email":"info@zahnaerzte-roth.de","address":{"@type":"PostalAddress","streetAddress":"Cleversulzbacher Str. 10","postalCode":"74196","addressLocality":"Neuenstadt am Kocher","addressCountry":"DE"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Thursday"],"opens":"08:00","closes":"12:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Thursday"],"opens":"14:00","closes":"18:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Wednesday","Friday"],"opens":"08:00","closes":"12:00"}]}
     </script>
@@ -52,7 +51,7 @@
 <nav id="navbar" class="fixed top-0 left-0 right-0 z-[1000] px-3 pt-3 sm:px-5 sm:pt-4">
         <div class="nav-shell mx-auto flex max-w-[1440px] items-center justify-between">
             <a href="index.html#hero" class="nav-brand" aria-label="Zur Startseite">
-                <img src="https://z-cdn-media.chatglm.cn/files/0b452cef-cbe0-485f-9d39-1c4a31abcc16.png?auth_key=1884035126-e5c0e67af8824d799289b9f5bb7024a9-0-8d1352f6b91f66324f27109c886c69bc" alt="Zahnarzt Adolf Roth" class="logo-nav">
+                <img src="assets/images/adolf-roth-logo.webp" alt="Zahnarzt Adolf Roth" width="512" height="416" class="logo-nav">
             </a>
             <div class="nav-links hidden xl:flex">
                 <a href="leistungen.html" class="nav-link">Leistungen</a>
@@ -82,7 +81,7 @@
 
     
     <div id="mobileMenu" class="mobile-menu fixed inset-0 z-[999] bg-white/98 backdrop-blur-xl flex flex-col items-center justify-center gap-8">
-        <img src="https://z-cdn-media.chatglm.cn/files/0b452cef-cbe0-485f-9d39-1c4a31abcc16.png?auth_key=1884035126-e5c0e67af8824d799289b9f5bb7024a9-0-8d1352f6b91f66324f27109c886c69bc" alt="Zahnarzt Adolf Roth" class="logo-mobile mb-4">
+        <img src="assets/images/adolf-roth-logo.webp" alt="Zahnarzt Adolf Roth" width="512" height="416" class="logo-mobile mb-4">
         <a href="leistungen.html" class="mobile-link text-2xl font-serif text-ink hover:text-roth transition-colors">Leistungen</a>
         <a href="ratgeber.html" class="mobile-link text-2xl font-serif text-ink hover:text-roth transition-colors">Ratgeber</a>
         <a href="index.html#ueber-uns" class="mobile-link text-2xl font-serif text-ink hover:text-roth transition-colors">Über uns</a>
@@ -117,21 +116,21 @@
         <div class="absolute bottom-1/3 left-1/4 w-[400px] h-[400px] rounded-full bg-roth/5 blur-[120px]"></div>
 
         <div class="relative z-10 max-w-5xl mx-auto px-6 text-center pt-24">
-            <div class="reveal inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-roth/20 rounded-full px-5 py-2 mb-8 shadow-soft">
+            <div class="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-roth/20 rounded-full px-5 py-2 mb-8 shadow-soft">
                 <iconify-icon icon="mdi:star" class="text-roth text-sm"></iconify-icon>
                 <span class="text-xs font-medium uppercase tracking-wider text-roth-dark">Über 30 Jahre Erfahrung in Neuenstadt am Kocher</span>
             </div>
 
-            <h1 class="reveal font-serif text-5xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight mb-6 text-ink" style="transition-delay: 0.1s;">
-                Ihr <span class="hero-highlight">Lächeln<svg class="hero-highlight__underline" viewBox="0 0 120 14" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M1 12C29 1.5 91 1.5 119 12"></path></svg></span>,<br>
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight mb-6 text-ink">
+                Ihr <span class="hero-highlight">Lächeln</span>,<br>
                 unser Meisterwerk
             </h1>
 
-            <p class="reveal text-lg md:text-xl text-ink-4 max-w-2xl mx-auto mb-10 font-light leading-relaxed" style="transition-delay: 0.2s;">
+            <p class="text-lg md:text-xl text-ink-4 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
                 Persönliche Zahnmedizin in Neuenstadt am Kocher. Sorgfältige Vorsorge, verständliche Beratung und Behandlungen, die zu Ihrer Situation passen.
             </p>
 
-            <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4" style="transition-delay: 0.3s;">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a href="#termin" data-booking-modal class="group inline-flex items-center gap-3 bg-roth text-white px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider hover:bg-roth-dark hover:scale-105 transition-all duration-300 shadow-roth shimmer-btn">
                     <iconify-icon icon="mdi:calendar-check" class="text-lg"></iconify-icon>
                     Jetzt Termin vereinbaren
@@ -143,7 +142,7 @@
                 </a>
             </div>
 
-            <div class="reveal mt-16 flex flex-wrap items-center justify-center gap-8 md:gap-12" style="transition-delay: 0.4s;">
+            <div class="mt-16 flex flex-wrap items-center justify-center gap-8 md:gap-12">
                 <div class="flex items-center gap-2 text-ink-4"><iconify-icon icon="mdi:message-text-outline" class="text-mint text-xl"></iconify-icon><span class="text-xs uppercase tracking-wider">Verständliche Beratung</span></div>
                 <div class="flex items-center gap-2 text-ink-4"><iconify-icon icon="mdi:shield-check-outline" class="text-roth text-xl"></iconify-icon><span class="text-xs uppercase tracking-wider">Vorsorge & Zahnerhalt</span></div>
                 <div class="flex items-center gap-2 text-ink-4"><iconify-icon icon="mdi:teddy-bear" class="text-mint text-xl"></iconify-icon><span class="text-xs uppercase tracking-wider">Kinder willkommen</span></div>
@@ -604,7 +603,7 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
             <div>
                 <a href="index.html#hero" class="flex items-center mb-5">
-                    <img src="https://z-cdn-media.chatglm.cn/files/0b452cef-cbe0-485f-9d39-1c4a31abcc16.png?auth_key=1884035126-e5c0e67af8824d799289b9f5bb7024a9-0-8d1352f6b91f66324f27109c886c69bc" alt="Zahnarzt Adolf Roth" class="logo-footer brightness-0 invert opacity-90 hover:opacity-100 transition-opacity">
+                    <img src="assets/images/adolf-roth-logo.webp" alt="Zahnarzt Adolf Roth" width="512" height="416" loading="lazy" decoding="async" class="logo-footer brightness-0 invert opacity-90 hover:opacity-100 transition-opacity">
                 </a>
                 <p class="text-ink-5 text-sm leading-relaxed">Ihre Zahnarztpraxis in Neuenstadt am Kocher für persönliche Beratung, Vorsorge, Zahnerhalt und hochwertigen Zahnersatz.</p>
             </div>

@@ -1,4 +1,4 @@
-import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises';
+import { copyFile, mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -217,7 +217,44 @@ const buildCrawlerFiles = async () => {
   await copyFile(path.join(publicDir, 'llms.txt'), path.join(root, 'llms.txt'));
 };
 
+const buildVendorAssets = async () => {
+  await copyFile(
+    path.join(root, 'node_modules', 'iconify-icon', 'dist', 'iconify-icon.min.js'),
+    path.join(root, 'assets', 'js', 'iconify-icon.min.js')
+  );
+  const sourceFiles = (await readdir(root))
+    .filter((file) => file.startsWith('src-') && file.endsWith('.html'))
+    .map((file) => path.join(root, file));
+  const sectionFiles = (await readdir(path.join(root, 'sections')))
+    .filter((file) => file.endsWith('.html'))
+    .map((file) => path.join(root, 'sections', file));
+  const iconNames = new Set();
+  for (const file of [...sourceFiles, ...sectionFiles]) {
+    const source = await readFile(file, 'utf8');
+    for (const match of source.matchAll(/icon="mdi:([a-z0-9-]+)"/g)) iconNames.add(match[1]);
+  }
+  for (const service of servicePages) iconNames.add(service.icon.replace('mdi:', ''));
+  const mdi = JSON.parse(await readFile(path.join(root, 'node_modules', '@iconify-json', 'mdi', 'icons.json'), 'utf8'));
+  const icons = {};
+  const aliases = {};
+  const addIcon = (name) => {
+    if (mdi.icons[name]) icons[name] = mdi.icons[name];
+    if (mdi.aliases?.[name]) {
+      aliases[name] = mdi.aliases[name];
+      addIcon(mdi.aliases[name].parent);
+    }
+  };
+  iconNames.forEach(addIcon);
+  const collection = JSON.stringify({ prefix: 'mdi', width: mdi.width, height: mdi.height, icons, aliases });
+  await writeFile(
+    path.join(root, 'assets', 'js', 'iconify-icons.js'),
+    `customElements.whenDefined('iconify-icon').then(() => customElements.get('iconify-icon').addCollection(${collection}));`,
+    'utf8'
+  );
+};
+
 export async function build() {
+  await buildVendorAssets();
   const pages = [
     ['src-layout.html', 'index.html'],
     ['src-leistungen.html', 'leistungen.html'],
